@@ -1,0 +1,33 @@
+# Local settings
+EstLan/settings/local_settings.py
+
+# Generated scripts
+update.sh
+start.sh
+log*/
+
+# Cached stuff
+EstLan/media/CACHE/
+EstLan/.sass-cache/
+
+# Database file
+EstLan/*.db
+
+# User media
+EstLan/media/uploads
+
+# A few 3rdparty packages + statics
+EstLan/media/admin_tools/
+EstLan/static/*
+
+# Virtual env
+venv*/
+env
+
+# Misc files
+*.mo
+*.pyc
+*~
+*.*.orig
+*.*.swp
+*.idea*
