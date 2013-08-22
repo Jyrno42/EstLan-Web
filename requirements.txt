@@ -8,6 +8,8 @@ pytz>=2013b
 django-crispy-forms>=1.3.2
 django-dajaxice==0.5.5
 
+Pillow
+
 oauth2>=1.5.211
 django-social-auth>=0.7.22
 
