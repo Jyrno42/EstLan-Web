@@ -201,9 +201,9 @@ echo "Done."
 # Git Pull
 # -----------------------------------------------------
 
-#echo -n "* Updating repository...   "
-#git pull >/dev/null
-#echo "Done."
+echo -n "* Updating repository...   "
+git pull >/dev/null
+echo "Done."
 
 # -----------------------------------------------------
 # Update dependencies
