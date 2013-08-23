@@ -222,3 +222,9 @@ cd $PROJECT_NAME
 python manage.py syncdb >/dev/null
 echo "Done."
 
+# Reload nginx
+# start service
+
+echo "-----------------------------------------------------"
+echo " "
+echo "* Everything complete, installed $PROJECT_NAME. Use service $PROJECT_NAME start to run server."
