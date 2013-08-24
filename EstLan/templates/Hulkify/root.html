@@ -1,0 +1,27 @@
+{% extends "html5.html" %}
+
+{% block base_css %}
+    <link href="{{ MEDIA_URL }}/bootstrap/css-bootstrap.css" rel="stylesheet" media="screen">
+    <link href="{{ MEDIA_URL }}/Hulkify/stylesheets/screen.css" rel="stylesheet" media="screen">
+    {% block extra_css %}{% endblock %}
+{% endblock %}
+
+
+{% block head_scripts %}
+    <!--[if lt IE 9]>
+        <script src="{{ MEDIA_URL }}/bootstrap/js/html5shiv.js"></script>
+        <script src="{{ MEDIA_URL }}/bootstrap/js/respond.js"></script>
+    <![endif]-->
+
+    {% block extra_head_scripts %}{% endblock %}
+{% endblock %}
+
+
+{% block body_scripts %}
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="{{ MEDIA_URL }}/bootstrap/js/bootstrap.js"></script>
+
+    {% block extra_body_scripts %}{% endblock %}
+{% endblock %}
+
+{% block html_body %}<h1>Hello, world!</h1>{% endblock %}

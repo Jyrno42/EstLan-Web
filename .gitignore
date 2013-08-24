@@ -8,7 +8,7 @@ log*/
 
 # Cached stuff
 EstLan/media/CACHE/
-EstLan/.sass-cache/
+/EstLan/media/Hulkify/.sass-cache
 
 # Database file
 EstLan/*.db

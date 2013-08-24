@@ -112,7 +112,8 @@ INSTALLED_APPS = (
     'dajaxice',
     
     # Apps for EstLan
-    'utils'
+    'utils',
+    'estlan'
 )
 
 # LOGGING
