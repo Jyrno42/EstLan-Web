@@ -4,6 +4,8 @@ EstLan/settings/local_settings.py
 # Generated scripts
 update.sh
 start.sh
+update.bat
+start.bat
 log*/
 
 # Cached stuff
