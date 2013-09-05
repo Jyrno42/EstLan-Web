@@ -1,4 +1,4 @@
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+<header class="navbar navbar-inverse navbar-fixed-top estlan-navbar" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -7,24 +7,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="../" class="navbar-brand">Bootstrap</a>
+      <a href="{% url "frontpage" %}" class="navbar-brand logo"></a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav pull-right">
         <li class="active">
-          <a href="../getting-started">Getting started</a>
+          <a href="../getting-started">Home</a>
         </li>
         <li>
-          <a href="../css">CSS</a>
+          <a href="../css">About</a>
         </li>
         <li>
-          <a href="../components">Components</a>
+          <a href="../components">News</a>
         </li>
         <li>
-          <a href="../javascript">JavaScript</a>
+          <a href="../javascript">Events</a>
         </li>
         <li>
-          <a href="../customize">Customize</a>
+          <a href="../customize">Contact</a>
         </li>
       </ul>
     </nav>
