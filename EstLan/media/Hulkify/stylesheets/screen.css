@@ -63,30 +63,41 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 2, ../sass/blocks/_heading.scss */
+/* line 2, ../sass/config/_body.scss */
 body {
   background: url('/media/Hulkify/images/wild_oliva.png?1378335838');
   background-position: center center;
   background-repeat: repeat;
 }
 
-/* line 8, ../sass/blocks/_heading.scss */
+/* line 8, ../sass/config/_body.scss */
+.lightbox {
+  background: -webkit-radial-gradient(center center, cover, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8));
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 6;
+}
+
+/* line 2, ../sass/blocks/_heading.scss */
 .estlan-navbar {
   -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
 }
-/* line 11, ../sass/blocks/_heading.scss */
+/* line 5, ../sass/blocks/_heading.scss */
 .estlan-navbar .container {
   max-width: 900px;
 }
 @media (min-width: 768px) {
-  /* line 11, ../sass/blocks/_heading.scss */
+  /* line 5, ../sass/blocks/_heading.scss */
   .estlan-navbar .container {
     padding-right: 40px;
   }
 }
-/* line 19, ../sass/blocks/_heading.scss */
+/* line 13, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-brand.logo {
   background: url('/media/Hulkify/images/logo.png?1378324908');
   width: 146px;
@@ -95,17 +106,17 @@ body {
   margin: 5px 15px 0 90px;
 }
 @media (max-width: 767px) {
-  /* line 19, ../sass/blocks/_heading.scss */
+  /* line 13, ../sass/blocks/_heading.scss */
   .estlan-navbar .navbar-brand.logo {
     margin-left: 10px;
   }
 }
-/* line 30, ../sass/blocks/_heading.scss */
+/* line 24, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a {
   text-transform: uppercase;
   font-weight: bold;
 }
-/* line 34, ../sass/blocks/_heading.scss */
+/* line 28, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a:after {
   content: "";
   position: absolute;
@@ -116,16 +127,16 @@ body {
   bottom: 40px;
   z-index: 30;
 }
-/* line 46, ../sass/blocks/_heading.scss */
+/* line 40, ../sass/blocks/_heading.scss */
 .estlan-navbar .nav.navbar-nav.pull-right {
   float: left !important;
 }
-/* line 51, ../sass/blocks/_heading.scss */
+/* line 45, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li:last-child > a:after {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 57, ../sass/blocks/_heading.scss */
+  /* line 51, ../sass/blocks/_heading.scss */
   .estlan-navbar .navbar-collapse {
     background-color: #eee;
   }

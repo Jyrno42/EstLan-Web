@@ -1,0 +1,18 @@
+
+body {
+    background: image-url("wild_oliva.png");
+    background-position: center center;
+    background-repeat: repeat;
+}
+
+.lightbox {
+    background: -webkit-radial-gradient(center center, cover, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8));
+    position: fixed;
+
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+
+    z-index: $zIndexLightBox;
+}
