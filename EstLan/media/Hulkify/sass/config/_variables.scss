@@ -1,5 +1,51 @@
 
-$zIndexBase : 5;
+$zIndexBase: 5;
 
-$zIndexLightBox : $zIndexBase + 1;
-$zIndexContent : $zIndexBase + 2;
+$zIndexLightBox: -1;
+$zIndexContent: $zIndexBase + 2;
+
+$headerHeight: 100px;
+
+$contentMargin: $headerHeight + 50px;
+
+@mixin diagonal_corners($size: 20px, $color: Red) {
+    &:before {
+        content: "";
+        position: absolute;
+        left: -$size;
+        top: 0px;
+        bottom: 0px;
+        z-index: 9999;
+        width: $size;
+
+        border-right: $size solid $color;
+        border-bottom: $size solid transparent;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        right: -$size;
+        top: 0px;
+        bottom: 0px;
+        z-index: 9999;
+        width: $size;
+
+        border-left: $size solid $color;
+        border-top: $size solid transparent;
+    }
+}
+
+@mixin btn_corner($size: 20px, $color: Red, $side: right, $vside: top, $unit: -1, $from: left) {
+    &:before {
+        content: "";
+        position: absolute;
+        #{$from}: $unit * $size;
+        top: 0px;
+        bottom: 0px;
+        z-index: 9999;
+        width: $size;
+
+        border-#{$side}: $size solid $color;
+        border-#{$vside}: $size solid transparent;
+    }
+}

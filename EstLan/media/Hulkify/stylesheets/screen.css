@@ -78,7 +78,14 @@ body {
   left: 0px;
   bottom: 0px;
   right: 0px;
-  z-index: 6;
+  z-index: -1;
+}
+
+/* line 20, ../sass/config/_body.scss */
+.estlan-container {
+  margin-top: 150px;
+  max-width: 980px;
+  z-index: 7;
 }
 
 /* line 2, ../sass/blocks/_heading.scss */
@@ -140,4 +147,117 @@ body {
   .estlan-navbar .navbar-collapse {
     background-color: #eee;
   }
+}
+
+/* line 4, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero {
+  background: #d5d5d5;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+  min-height: 355px;
+  position: relative;
+  margin: 0 5px;
+}
+/* line 12, ../sass/config/_variables.scss */
+.jumbotron.hero:before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 9999;
+  width: 20px;
+  border-right: 20px solid #d5d5d5;
+  border-bottom: 20px solid transparent;
+}
+/* line 24, ../sass/config/_variables.scss */
+.jumbotron.hero:after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 9999;
+  width: 20px;
+  border-left: 20px solid #d5d5d5;
+  border-top: 20px solid transparent;
+}
+/* line 13, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control {
+  position: absolute;
+  bottom: 20px;
+  right: 0px;
+}
+/* line 18, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control .btn {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+  border: 0px none transparent;
+  position: relative;
+  height: 48px;
+  min-width: 71px;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  background: #1d3a12;
+  font-weight: bold;
+}
+/* line 29, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control .btn.slide_l_or_r {
+  line-height: 30px;
+}
+/* line 31, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control .btn.slide_l_or_r .icon-prev:before {
+  content: '\2039';
+  font-size: 30px;
+}
+/* line 35, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control .btn.slide_l_or_r .icon-next:before {
+  content: '\203a';
+  font-size: 30px;
+}
+/* line 44, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control .btn:first-child {
+  text-indent: -20px;
+}
+/* line 39, ../sass/config/_variables.scss */
+.jumbotron.hero .hero-control .btn:first-child:before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 9999;
+  width: 20px;
+  border-right: 20px solid #1d3a12;
+  border-top: 20px solid transparent;
+}
+/* line 48, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control .btn:last-child {
+  text-indent: 20px;
+  margin-right: 20px;
+}
+/* line 39, ../sass/config/_variables.scss */
+.jumbotron.hero .hero-control .btn:last-child:before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 9999;
+  width: 20px;
+  border-left: 20px solid #1d3a12;
+  border-bottom: 20px solid transparent;
+}
+/* line 54, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control .btn:hover {
+  opacity: 1;
 }

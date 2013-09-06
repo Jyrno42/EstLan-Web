@@ -16,3 +16,10 @@ body {
 
     z-index: $zIndexLightBox;
 }
+
+.estlan-container {
+    margin-top: $contentMargin;
+    max-width: 980px;
+    z-index: $zIndexContent;
+}
+
