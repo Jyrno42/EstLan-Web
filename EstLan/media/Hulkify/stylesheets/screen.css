@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 /* line 17, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -90,21 +91,22 @@ body {
 
 /* line 2, ../sass/blocks/_heading.scss */
 .estlan-navbar {
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
 }
-/* line 5, ../sass/blocks/_heading.scss */
+/* line 7, ../sass/blocks/_heading.scss */
 .estlan-navbar .container {
   max-width: 900px;
 }
 @media (min-width: 768px) {
-  /* line 5, ../sass/blocks/_heading.scss */
+  /* line 7, ../sass/blocks/_heading.scss */
   .estlan-navbar .container {
     padding-right: 40px;
   }
 }
-/* line 13, ../sass/blocks/_heading.scss */
+/* line 15, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-brand.logo {
   background: url('/media/Hulkify/images/logo.png?1378324908');
   width: 146px;
@@ -113,17 +115,27 @@ body {
   margin: 5px 15px 0 90px;
 }
 @media (max-width: 767px) {
-  /* line 13, ../sass/blocks/_heading.scss */
+  /* line 15, ../sass/blocks/_heading.scss */
   .estlan-navbar .navbar-brand.logo {
     margin-left: 10px;
   }
 }
-/* line 24, ../sass/blocks/_heading.scss */
+/* line 26, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a {
   text-transform: uppercase;
+  font-size: 18px;
   font-weight: bold;
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
-/* line 28, ../sass/blocks/_heading.scss */
+/* line 33, ../sass/blocks/_heading.scss */
+.estlan-navbar .navbar-nav > li > a:hover, .estlan-navbar .navbar-nav > li > a.active {
+  opacity: 1;
+}
+/* line 37, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a:after {
   content: "";
   position: absolute;
@@ -134,16 +146,16 @@ body {
   bottom: 40px;
   z-index: 30;
 }
-/* line 40, ../sass/blocks/_heading.scss */
+/* line 49, ../sass/blocks/_heading.scss */
 .estlan-navbar .nav.navbar-nav.pull-right {
   float: left !important;
 }
-/* line 45, ../sass/blocks/_heading.scss */
+/* line 54, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li:last-child > a:after {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 51, ../sass/blocks/_heading.scss */
+  /* line 60, ../sass/blocks/_heading.scss */
   .estlan-navbar .navbar-collapse {
     background-color: #eee;
   }
@@ -159,7 +171,7 @@ body {
   border-radius: 0px;
   min-height: 355px;
   position: relative;
-  margin: 0 5px;
+  margin: 0 25px;
 }
 /* line 12, ../sass/config/_variables.scss */
 .jumbotron.hero:before {
@@ -168,7 +180,7 @@ body {
   left: -20px;
   top: 0px;
   bottom: 0px;
-  z-index: 9999;
+  z-index: 99;
   width: 20px;
   border-right: 20px solid #d5d5d5;
   border-bottom: 20px solid transparent;
@@ -180,7 +192,7 @@ body {
   right: -20px;
   top: 0px;
   bottom: 0px;
-  z-index: 9999;
+  z-index: 99;
   width: 20px;
   border-left: 20px solid #d5d5d5;
   border-top: 20px solid transparent;
@@ -199,6 +211,8 @@ body {
   -o-border-radius: 0px;
   border-radius: 0px;
   border: 0px none transparent;
+  background: #1d3a12;
+  font-weight: bold;
   position: relative;
   height: 48px;
   min-width: 71px;
@@ -207,57 +221,57 @@ body {
   -moz-transition: opacity 0.5s ease;
   -o-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
-  background: #1d3a12;
-  font-weight: bold;
 }
-/* line 29, ../sass/blocks/_hero_unit.scss */
+/* line 28, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .hero-control .btn:hover {
+  opacity: 1;
+}
+/* line 33, ../sass/blocks/_hero_unit.scss */
 .jumbotron.hero .hero-control .btn.slide_l_or_r {
   line-height: 30px;
 }
-/* line 31, ../sass/blocks/_hero_unit.scss */
+/* line 35, ../sass/blocks/_hero_unit.scss */
 .jumbotron.hero .hero-control .btn.slide_l_or_r .icon-prev:before {
   content: '\2039';
   font-size: 30px;
 }
-/* line 35, ../sass/blocks/_hero_unit.scss */
+/* line 39, ../sass/blocks/_hero_unit.scss */
 .jumbotron.hero .hero-control .btn.slide_l_or_r .icon-next:before {
   content: '\203a';
   font-size: 30px;
 }
-/* line 44, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control .btn:first-child {
-  text-indent: -20px;
-}
-/* line 39, ../sass/config/_variables.scss */
-.jumbotron.hero .hero-control .btn:first-child:before {
-  content: "";
-  position: absolute;
-  left: -20px;
-  top: 0px;
-  bottom: 0px;
-  z-index: 9999;
-  width: 20px;
-  border-right: 20px solid #1d3a12;
-  border-top: 20px solid transparent;
-}
-/* line 48, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control .btn:last-child {
-  text-indent: 20px;
-  margin-right: 20px;
-}
-/* line 39, ../sass/config/_variables.scss */
-.jumbotron.hero .hero-control .btn:last-child:before {
-  content: "";
-  position: absolute;
-  right: -20px;
-  top: 0px;
-  bottom: 0px;
-  z-index: 9999;
-  width: 20px;
-  border-left: 20px solid #1d3a12;
-  border-bottom: 20px solid transparent;
-}
-/* line 54, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control .btn:hover {
-  opacity: 1;
+@media (min-width: 400px) {
+  /* line 46, ../sass/blocks/_hero_unit.scss */
+  .jumbotron.hero .hero-control .btn:first-child {
+    text-indent: -20px;
+  }
+  /* line 39, ../sass/config/_variables.scss */
+  .jumbotron.hero .hero-control .btn:first-child:before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 9999;
+    width: 20px;
+    border-right: 20px solid #1d3a12;
+    border-top: 20px solid transparent;
+  }
+  /* line 50, ../sass/blocks/_hero_unit.scss */
+  .jumbotron.hero .hero-control .btn:last-child {
+    text-indent: 20px;
+    margin-right: 20px;
+  }
+  /* line 39, ../sass/config/_variables.scss */
+  .jumbotron.hero .hero-control .btn:last-child:before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 9999;
+    width: 20px;
+    border-left: 20px solid #1d3a12;
+    border-bottom: 20px solid transparent;
+  }
 }

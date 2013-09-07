@@ -1,5 +1,7 @@
 
 .estlan-navbar {
+    font-family: $fontStackHeading;
+
     @include single-box-shadow(rgba(0, 0, 0, 0.7), 0, 4px, 4px);
 
     .container {
@@ -23,7 +25,14 @@
 
     .navbar-nav > li > a {
         text-transform: uppercase;
+        font-size: 18px;
         font-weight: bold;
+        opacity: 0.8;
+        @include single-transition(all, .5s, ease);
+
+        &:hover, &.active {
+            opacity: 1;
+        }
 
         &:after {
             content: "";

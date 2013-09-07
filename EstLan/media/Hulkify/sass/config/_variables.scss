@@ -15,7 +15,7 @@ $contentMargin: $headerHeight + 50px;
         left: -$size;
         top: 0px;
         bottom: 0px;
-        z-index: 9999;
+        z-index: 99;
         width: $size;
 
         border-right: $size solid $color;
@@ -27,7 +27,7 @@ $contentMargin: $headerHeight + 50px;
         right: -$size;
         top: 0px;
         bottom: 0px;
-        z-index: 9999;
+        z-index: 99;
         width: $size;
 
         border-left: $size solid $color;

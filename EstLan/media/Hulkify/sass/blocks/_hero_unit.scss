@@ -6,7 +6,7 @@ $heroBtnColor: mix(#1D4810, #1D2D14);
     @include border-radius(0px);
     min-height: 355px;
     position: relative;
-    margin: 0 5px;
+    margin: 0 25px;
 
     @include diagonal_corners(20px, $jumbotronBg);
 
@@ -18,14 +18,18 @@ $heroBtnColor: mix(#1D4810, #1D2D14);
         .btn {
             @include border-radius(0px);
             border: 0px none transparent;
-
+            background: $heroBtnColor;
+            font-weight: bold;
             position: relative;
             height: 48px;
             min-width: 71px;
+
             opacity: 0.8;
+            &:hover {
+                opacity: 1;
+            }
 
             @include single-transition(opacity, .5s, ease);
-
             &.slide_l_or_r {
                 line-height: 30px;
                 .icon-prev:before {
@@ -38,22 +42,18 @@ $heroBtnColor: mix(#1D4810, #1D2D14);
                 }
             }
 
-            background: $heroBtnColor;
-            font-weight: bold;
+            @media (min-width: 400px) {
+                &:first-child {
+                    text-indent: -20px;
+                    @include btn_corner(20px, $heroBtnColor);
+                }
+                &:last-child {
+                    text-indent: 20px;
+                    @include btn_corner(20px, $heroBtnColor, left, bottom, -1, right);
+                    margin-right: 20px;
+                }
+            }
 
-            &:first-child {
-                text-indent: -20px;
-                @include btn_corner(20px, $heroBtnColor);
-            }
-            &:last-child {
-                text-indent: 20px;
-                @include btn_corner(20px, $heroBtnColor, left, bottom, -1, right);
-                margin-right: 20px;
-            }
-
-            &:hover {
-                opacity: 1;
-            }
         }
     }
 }
