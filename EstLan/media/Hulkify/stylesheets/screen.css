@@ -66,7 +66,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* line 2, ../sass/config/_body.scss */
 body {
-  background: url('/media/Hulkify/images/wild_oliva.png?1378335838');
+  background-image: url('/media/Hulkify/images/wild_oliva.png?1378335838');
   background-position: center center;
   background-repeat: repeat;
 }
