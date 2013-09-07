@@ -4,9 +4,10 @@ $heroBtnColor: mix(#1D4810, #1D2D14);
 .jumbotron.hero {
     background: $jumbotronBg;
     @include border-radius(0px);
+
     min-height: 355px;
     position: relative;
-    margin: 0 25px;
+    margin: 0 25px 40px;
 
     @include diagonal_corners(20px, $jumbotronBg);
 

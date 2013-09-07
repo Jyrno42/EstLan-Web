@@ -3,3 +3,11 @@
 
 $fontStack: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $fontStackHeading: 'Roboto Condensed', $fontStack;
+
+.tagline {
+    color: #E9E9E9;
+    font-size: 28px;
+    font-family: $fontStackHeading;
+    text-align: center;
+    margin-bottom: 40px;
+}

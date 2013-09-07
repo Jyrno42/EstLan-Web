@@ -12,8 +12,16 @@
 
     <div class="container estlan-container">
 
+        {% block tagline_base %}
+            {% include "Hulkify/blocks/tagline.html" %}
+        {% endblock %}
+
         {% block hero-unit_base %}
             {% include "Hulkify/blocks/hero-unit.html" %}
+        {% endblock %}
+
+        {% block main_content_base %}
+            {% include "Hulkify/blocks/content.html" %}
         {% endblock %}
 
     </div>

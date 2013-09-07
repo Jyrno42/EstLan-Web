@@ -1,3 +1,5 @@
+@import "compass";
+
 @import "compass/reset";
 
 @import "compass/css3/images";
@@ -21,3 +23,5 @@
 // Import Main Parts
 @import "blocks/heading";
 @import "blocks/hero_unit";
+
+@import "blocks/content_area";

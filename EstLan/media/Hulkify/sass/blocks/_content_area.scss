@@ -1,0 +1,28 @@
+
+.content_area {
+    margin: 0 5px 0 25px;
+
+    @media (max-width: 768px) {
+        margin-right: 25px;
+    }
+}
+
+.main_content {
+    background: White;
+
+    $experimental-support-for-svg: true;
+    @include background(
+        linear-gradient(to bottom, #fff, #d5d5d5)
+    );
+
+    @include diagonal_corners(20px, White);
+    min-height: 300px;
+    //margin-left: 40px;
+    padding: 40px;
+}
+
+.sidebar {
+    background: #000000;
+    min-height: 300px;
+    padding: 40px;
+}
