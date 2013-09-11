@@ -1,29 +1,34 @@
 {% extends "Hulkify/root.html" %}
 
-
-
 {% block html_body %}
 
     <div class="lightbox"></div>
-
-    {% block navbar_base %}
-        {% include "Hulkify/blocks/header.html" %}
-    {% endblock %}
-
-    <div class="container estlan-container">
-
-        {% block tagline_base %}
-            {% include "Hulkify/blocks/tagline.html" %}
+    <div id="wrap">
+        {% block navbar_base %}
+            {% include "Hulkify/blocks/header.html" %}
         {% endblock %}
 
-        {% block hero-unit_base %}
-            {% include "Hulkify/blocks/hero-unit.html" %}
-        {% endblock %}
+        <div class="container estlan-container">
+            {% block tagline_base %}
+                {% include "Hulkify/blocks/tagline.html" %}
+            {% endblock %}
 
-        {% block main_content_base %}
-            {% include "Hulkify/blocks/content.html" %}
-        {% endblock %}
+            {% block hero-unit_base %}
+                {% include "Hulkify/blocks/hero-unit.html" %}
+            {% endblock %}
 
+            {% block main_content_base %}
+                {% include "Hulkify/blocks/content.html" %}
+            {% endblock %}
+        </div>
     </div>
+
+    {% block footer_base %}
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted credit">EstLan 2013 - <a href="https://github.com/Jyrno42/EstLan-Web" target="_blank"><i class="icon-github-sign"></i></a></p>
+            </div>
+        </div>
+    {% endblock %}
 
 {% endblock %}

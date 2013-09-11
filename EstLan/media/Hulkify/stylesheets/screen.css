@@ -74,13 +74,54 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 2, ../sass/config/_body.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 6, ../sass/config/_body.scss */
 body {
   background-image: url('/media/Hulkify/images/wild_oliva.png?1378335838');
   background-position: center center;
   background-repeat: repeat;
 }
 
-/* line 8, ../sass/config/_body.scss */
+/* line 12, ../sass/config/_body.scss */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto;
+  margin-bottom: -40px;
+  padding: 0 0 40px;
+}
+
+/* line 20, ../sass/config/_body.scss */
+#footer {
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  line-height: 40px;
+  font-size: 20px;
+}
+/* line 26, ../sass/config/_body.scss */
+#footer a {
+  color: #eeeeee;
+  text-decoration: none;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+/* line 29, ../sass/config/_body.scss */
+#footer a i {
+  font-size: 1em;
+}
+/* line 36, ../sass/config/_body.scss */
+#footer a:hover {
+  opacity: 0.8;
+}
+
+/* line 42, ../sass/config/_body.scss */
 .lightbox {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDApIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsIDAsIDAsIDAuOCkiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.8)));
@@ -96,7 +137,7 @@ body {
   z-index: -1;
 }
 
-/* line 24, ../sass/config/_body.scss */
+/* line 58, ../sass/config/_body.scss */
 .estlan-container {
   margin-top: 150px;
   max-width: 980px;
@@ -310,7 +351,7 @@ body {
   .hero_base .hero .container .hero-control .btn:first-child {
     text-indent: -20px;
   }
-  /* line 39, ../sass/config/_variables.scss */
+  /* line 40, ../sass/config/_variables.scss */
   .hero_base .hero .container .hero-control .btn:first-child:before {
     content: "";
     position: absolute;
@@ -327,7 +368,7 @@ body {
     text-indent: 20px;
     margin-right: 20px;
   }
-  /* line 39, ../sass/config/_variables.scss */
+  /* line 40, ../sass/config/_variables.scss */
   .hero_base .hero .container .hero-control .btn:last-child:before {
     content: "";
     position: absolute;
@@ -470,7 +511,7 @@ body {
 
 /* line 2, ../sass/blocks/_content_area.scss */
 .content_area {
-  margin: 0 5px 0 25px;
+  margin: 0 5px 40px 25px;
 }
 @media (max-width: 768px) {
   /* line 2, ../sass/blocks/_content_area.scss */
@@ -491,7 +532,7 @@ body {
   min-height: 300px;
   padding: 40px;
 }
-/* line 12, ../sass/config/_variables.scss */
+/* line 13, ../sass/config/_variables.scss */
 .main_content:before {
   content: "";
   position: absolute;
@@ -503,7 +544,7 @@ body {
   border-right: 20px solid white;
   border-bottom: 20px solid transparent;
 }
-/* line 24, ../sass/config/_variables.scss */
+/* line 25, ../sass/config/_variables.scss */
 .main_content:after {
   content: "";
   position: absolute;
