@@ -176,49 +176,100 @@ body {
 }
 
 /* line 4, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero {
+.hero_base {
+  position: relative;
+  margin-bottom: 40px;
+}
+/* line 19, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero_top {
   background: #d5d5d5;
+  height: 25px;
+  margin-right: 25px;
+  top: 0;
+  position: relative;
+  z-index: 99;
+}
+/* line 27, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero_top .hero_corner_top_right {
+  content: "";
+  position: absolute;
+  right: -25px;
+  top: 0px;
+  height: 25px;
+  width: 25px;
+  border-left: 25px solid #d5d5d5;
+  border-top: 25px solid transparent;
+}
+/* line 39, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero_top .hero_corner_top_right2 {
+  content: "";
+  position: absolute;
+  right: -5.17767px;
+  top: 19.82233px;
+  height: 25px;
+  width: 25px;
+  border-right: 25px solid #d5d5d5;
+  border-bottom: 25px solid transparent;
+}
+/* line 52, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero_bottom {
+  background: #d5d5d5;
+  height: 25px;
+  margin-left: 25px;
+  bottom: 0;
+  position: relative;
+  z-index: 99;
+}
+/* line 60, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero_bottom .hero_corner_bottom_left {
+  content: "";
+  position: absolute;
+  left: -25px;
+  bottom: 0px;
+  z-index: 99;
+  height: 25px;
+  width: 25px;
+  border-right: 25px solid #d5d5d5;
+  border-bottom: 25px solid transparent;
+}
+/* line 72, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero_bottom .hero_corner_bottom_left2 {
+  content: "";
+  position: absolute;
+  left: -5.17767px;
+  bottom: 19.82233px;
+  height: 25px;
+  width: 25px;
+  border-left: 25px solid #d5d5d5;
+  border-top: 25px solid transparent;
+}
+/* line 85, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
   -o-border-radius: 0px;
   border-radius: 0px;
-  min-height: 355px;
+  border-left: 25px solid #d5d5d5;
+  border-right: 25px solid #d5d5d5;
   position: relative;
-  margin: 0 25px 40px;
+  margin: 0;
+  padding: 0;
 }
-/* line 12, ../sass/config/_variables.scss */
-.jumbotron.hero:before {
-  content: "";
-  position: absolute;
-  left: -20px;
-  top: 0px;
-  bottom: 0px;
-  z-index: 99;
-  width: 20px;
-  border-right: 20px solid #d5d5d5;
-  border-bottom: 20px solid transparent;
+/* line 96, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container {
+  background: #000000;
+  padding: 0;
+  margin: 0;
 }
-/* line 24, ../sass/config/_variables.scss */
-.jumbotron.hero:after {
-  content: "";
-  position: absolute;
-  right: -20px;
-  top: 0px;
-  bottom: 0px;
-  z-index: 99;
-  width: 20px;
-  border-left: 20px solid #d5d5d5;
-  border-top: 20px solid transparent;
-}
-/* line 14, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control {
+/* line 101, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .hero-control {
   position: absolute;
   bottom: 20px;
-  right: 0px;
+  right: 20px;
 }
-/* line 19, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control .btn {
+/* line 106, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .hero-control .btn {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
@@ -236,31 +287,31 @@ body {
   -o-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
-/* line 29, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control .btn:hover {
+/* line 116, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .hero-control .btn:hover {
   opacity: 1;
 }
-/* line 34, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control .btn.slide_l_or_r {
+/* line 121, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .hero-control .btn.slide_l_or_r {
   line-height: 30px;
 }
-/* line 36, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control .btn.slide_l_or_r .icon-prev:before {
+/* line 123, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .hero-control .btn.slide_l_or_r .icon-prev:before {
   content: '\2039';
   font-size: 30px;
 }
-/* line 40, ../sass/blocks/_hero_unit.scss */
-.jumbotron.hero .hero-control .btn.slide_l_or_r .icon-next:before {
+/* line 127, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .hero-control .btn.slide_l_or_r .icon-next:before {
   content: '\203a';
   font-size: 30px;
 }
 @media (min-width: 400px) {
-  /* line 47, ../sass/blocks/_hero_unit.scss */
-  .jumbotron.hero .hero-control .btn:first-child {
+  /* line 134, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero .container .hero-control .btn:first-child {
     text-indent: -20px;
   }
   /* line 39, ../sass/config/_variables.scss */
-  .jumbotron.hero .hero-control .btn:first-child:before {
+  .hero_base .hero .container .hero-control .btn:first-child:before {
     content: "";
     position: absolute;
     left: -20px;
@@ -271,13 +322,13 @@ body {
     border-right: 20px solid #1d3a12;
     border-top: 20px solid transparent;
   }
-  /* line 51, ../sass/blocks/_hero_unit.scss */
-  .jumbotron.hero .hero-control .btn:last-child {
+  /* line 138, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero .container .hero-control .btn:last-child {
     text-indent: 20px;
     margin-right: 20px;
   }
   /* line 39, ../sass/config/_variables.scss */
-  .jumbotron.hero .hero-control .btn:last-child:before {
+  .hero_base .hero .container .hero-control .btn:last-child:before {
     content: "";
     position: absolute;
     right: -20px;
@@ -288,6 +339,133 @@ body {
     border-left: 20px solid #1d3a12;
     border-bottom: 20px solid transparent;
   }
+}
+@media (min-width: 768px) {
+  /* line 96, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero .container {
+    max-width: none;
+  }
+}
+@media (max-width: 1200px) {
+  /* line 154, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero_top {
+    height: 10px;
+    margin-right: 10px;
+  }
+  /* line 158, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero_top .hero_corner_top_right {
+    right: -10px;
+    height: 10px;
+    width: 10px;
+    border-left-width: 10px;
+    border-top-width: 10px;
+  }
+  /* line 165, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero_top .hero_corner_top_right2 {
+    right: -2.07107px;
+    top: 7.92893px;
+    height: 10px;
+    width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    z-index: 999;
+  }
+  /* line 177, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero_bottom {
+    height: 10px;
+    margin-left: 10px;
+  }
+  /* line 181, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero_bottom .hero_corner_bottom_left {
+    left: -10px;
+    height: 10px;
+    width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+  }
+  /* line 189, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero_bottom .hero_corner_bottom_left2 {
+    left: -2.07107px;
+    bottom: 7.92893px;
+    height: 10px;
+    width: 10px;
+    border-left-width: 10px;
+    border-top-width: 10px;
+  }
+  /* line 199, ../sass/blocks/_hero_unit.scss */
+  .hero_base .hero {
+    border-left-width: 10px;
+    border-right-width: 10px;
+  }
+}
+
+/* line 206, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero {
+  padding: 0;
+  margin: 0;
+}
+/* line 209, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero .container {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 215, ../sass/blocks/_hero_unit.scss */
+.jumbotron.hero {
+    /*@include border-radius(0px);
+
+    min-height: 355px;
+    position: relative;
+    margin: 0 25px 40px;
+
+    @include diagonal_corners(20px, $jumbotronBg);
+
+    .hero-control {
+        position: absolute;
+        bottom: 20px;
+        right: 0px;
+
+        .btn {
+            @include border-radius(0px);
+            border: 0px none transparent;
+            background: $heroBtnColor;
+            font-weight: bold;
+            position: relative;
+            height: 48px;
+            min-width: 71px;
+
+            opacity: 0.8;
+            &:hover {
+                opacity: 1;
+            }
+
+            @include single-transition(opacity, .5s, ease);
+            &.slide_l_or_r {
+                line-height: 30px;
+                .icon-prev:before {
+                    content: '\2039';
+                    font-size: 30px;
+                }
+                .icon-next:before {
+                    content: '\203a';
+                    font-size: 30px;
+                }
+            }
+
+            @media (min-width: 400px) {
+                &:first-child {
+                    text-indent: -20px;
+                    @include btn_corner(20px, $heroBtnColor);
+                }
+                &:last-child {
+                    text-indent: 20px;
+                    @include btn_corner(20px, $heroBtnColor, left, bottom, -1, right);
+                    margin-right: 20px;
+                }
+            }
+
+        }
+    }*/
 }
 
 /* line 2, ../sass/blocks/_content_area.scss */
