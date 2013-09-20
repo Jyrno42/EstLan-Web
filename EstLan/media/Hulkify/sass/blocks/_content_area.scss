@@ -1,28 +1,72 @@
 
-.content_area {
-    margin: 0 5px 40px 25px;
+$contentBg: #eee;
 
-    @media (max-width: 768px) {
-        margin-right: 25px;
+
+.content_area {
+
+    margin: 0 0 40px $diagSizeBig;
+    background: rgba(#000, 0.6);
+
+    .main_content {
+        margin: $diagSizeBig 0 $diagSizeBig;
+        margin-left: -$diagSizeBig;
+
+        background: $contentBg;
+        min-height: 300px;
+
+        padding: 40px;
+        position: relative;
+
+        .diag-bottom,
+        .diag-top {
+            background: $contentBg;
+            position: absolute;
+            left: 0;
+            right: 0;
+            .diag_helper {
+                position: absolute;
+                height: $diagSizeBig;
+                width: $diagSizeBig;
+            }
+        }
+
+        .diag-top {
+            height: $diagSizeBig;
+            top: -$diagSizeBig;
+            margin-right: $diagSizeBig;
+
+            .diag_helper {
+                right: -$diagSizeBig;
+                border-left: $diagSizeBig solid $contentBg;
+                border-top: $diagSizeBig solid transparent;
+            }
+        }
+        .diag-bottom {
+            height: $diagSizeBig;
+            bottom: -$diagSizeBig;
+            margin-left: $diagSizeBig;
+
+            .diag_helper {
+                left: -$diagSizeBig;
+                border-right: $diagSizeBig solid $contentBg;
+                border-bottom: $diagSizeBig solid transparent;
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        background: transparent;
+        margin-left: 0;
+
+        .main_content {
+            margin-left: 0;
+        }
+    }
+
+    .sidebar {
+        min-height: 300px + $diagSizeBig;
+        padding: 40px;
     }
 }
 
-.main_content {
-    background: White;
 
-    $experimental-support-for-svg: true;
-    @include background(
-        linear-gradient(to bottom, #fff, #d5d5d5)
-    );
-
-    @include diagonal_corners(20px, White);
-    min-height: 300px;
-    //margin-left: 40px;
-    padding: 40px;
-}
-
-.sidebar {
-    background: #000000;
-    min-height: 300px;
-    padding: 40px;
-}

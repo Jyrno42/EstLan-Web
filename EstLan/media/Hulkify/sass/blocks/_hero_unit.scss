@@ -5,8 +5,8 @@ $heroBtnColor: mix(#1D4810, #1D2D14);
     position: relative;
     margin-bottom: 40px;
 
-    $overlaySize: 25px;
-    $overlaySizeSmall: 10px;
+    $overlaySize: $diagSizeBig;
+    $overlaySizeSmall: $diagSizeSmall;
 
     $hypLen: sqrt(pow($overlaySize, 2) + pow($overlaySize, 2));
     $diagHeight: $hypLen / 2;

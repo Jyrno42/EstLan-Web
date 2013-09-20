@@ -1,0 +1,11 @@
+
+<div class="article_area">
+
+    {% for article in articles %}
+        article!
+    {% empty %}
+        {% include "Hulkify/blocks/no_news.html" %}
+    {% endfor %}
+
+</div>
+

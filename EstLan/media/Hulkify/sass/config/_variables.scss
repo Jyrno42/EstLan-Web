@@ -9,6 +9,9 @@ $footerHeight: 40px;
 
 $contentMargin: $headerHeight + 50px;
 
+$diagSizeBig: 25px;
+$diagSizeSmall: 10px;
+
 @mixin diagonal_corners($size: 20px, $color: Red) {
     &:before {
         content: "";
