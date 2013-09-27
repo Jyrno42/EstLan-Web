@@ -12,6 +12,8 @@ $contentMargin: $headerHeight + 50px;
 $diagSizeBig: 25px;
 $diagSizeSmall: 10px;
 
+$articleMarginBottom: 40px;
+
 @mixin diagonal_corners($size: 20px, $color: Red) {
     &:before {
         content: "";

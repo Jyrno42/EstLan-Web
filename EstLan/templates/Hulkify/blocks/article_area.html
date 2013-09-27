@@ -1,8 +1,22 @@
+{% load i18n %}
+
 
 <div class="article_area">
 
     {% for article in articles %}
-        article!
+        <div class="article">
+            <div class="article-title">
+                <h1>{{ article.title }}</h1>
+
+                <span>{{ article.publish_date }}</span>
+            </div>
+
+            <p>{{ article.short_text }}</p>
+
+            <button class="btn btn-primary">{% trans "Read More" %}</button>
+
+        </div>
+
     {% empty %}
         {% include "Hulkify/blocks/no_news.html" %}
     {% endfor %}

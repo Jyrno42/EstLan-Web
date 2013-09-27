@@ -17,6 +17,8 @@ $contentBg: #eee;
         padding: 40px;
         position: relative;
 
+        @import "blocks/articles/article_area";
+
         .diag-bottom,
         .diag-top {
             background: $contentBg;

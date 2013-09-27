@@ -11,3 +11,10 @@ $fontStackHeading: 'Roboto Condensed', $fontStack;
     text-align: center;
     margin-bottom: 40px;
 }
+
+h1 {
+    font-weight: Bold;
+    font-family: $fontStackHeading;
+    font-size: 2em;
+    line-height: 1.1em;
+}

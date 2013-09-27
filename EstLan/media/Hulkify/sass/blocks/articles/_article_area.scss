@@ -1,0 +1,55 @@
+
+
+.article_area {
+
+    .article {
+        margin-bottom: $articleMarginBottom;
+
+
+        > h1, .article-title {
+            border-bottom: 2px solid #269abc;
+            margin-bottom: 20px;
+
+            > h1 {
+                float: left;
+            }
+            span {
+                float: right;
+                text-align: right;
+                line-height: 1.1em;
+                font-size: 1.1em;
+                padding-top: 0.8em;
+
+                @include clearfix;
+            }
+            @include clearfix;
+        }
+
+        p {
+            line-height: 1.2em;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        &.error {
+            $errorIconWidth: 96px +  25px;
+            position: relative;
+
+            h1 {
+                border-bottom: 0px none transparent;
+            }
+
+            > div {
+                padding-left: $errorIconWidth;
+            }
+
+            [class*='icon-'] {
+                font-size: 7em;
+                float: left;
+                width: $errorIconWidth;
+            }
+        }
+    }
+
+}
+

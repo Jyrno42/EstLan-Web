@@ -1,0 +1,22 @@
+{% load i18n %}
+
+
+<div class="article error">
+
+    <i class="icon-frown"></i>
+
+    <div>
+        {% if request.GET.query %}
+            <h1>{% trans "No Results" %}</h1>
+            <p>{% trans "Your search query did not match any results. Please simplify it." %}</p>
+        {% elif request.GET.f %}
+            <h1>{% trans "This is the end" %}</h1>
+            <p>{% trans "Nothing past this point, you have reached the end." %}</p>
+        {% else %}
+            <h1>{% trans "No News" %}</h1>
+            <p>{% trans "Sadly we currently don't have any news. Be sure to check back soon..." %}</p>
+        {% endif %}
+
+    </div>
+
+</div>
