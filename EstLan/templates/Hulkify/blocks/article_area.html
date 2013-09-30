@@ -8,12 +8,13 @@
             <div class="article-title">
                 <h1>{{ article.title }}</h1>
 
-                <span>{{ article.publish_date }}</span>
+                <span>{{ article.publish_date|date:"DATETIME_FORMAT" }}</span>
             </div>
 
             <p>{{ article.short_text }}</p>
 
-            <button class="btn btn-primary">{% trans "Read More" %}</button>
+            <button class="btn btn-green">{% trans "Read More" %}</button>
+            <a class="btn btn-link">{% trans "Comments" %}</a>
 
         </div>
 

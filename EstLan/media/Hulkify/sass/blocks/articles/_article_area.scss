@@ -5,6 +5,12 @@
     .article {
         margin-bottom: $articleMarginBottom;
 
+        .btn-link {
+            line-height: 43px;
+            color: #6B6C6C;
+            font-size: 18px;
+            font-family: $fontStackHeading;
+        }
 
         > h1, .article-title {
             border-bottom: 2px solid #269abc;

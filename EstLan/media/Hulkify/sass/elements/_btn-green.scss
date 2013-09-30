@@ -1,0 +1,59 @@
+$btn-green-spacing: 2px;
+@import "btn-green/*.png";
+
+$btnGreenPadding: 6px;
+
+.btn.btn-green {
+    $height: btn-green-sprite-height(bg);
+    $widthLeft: btn-green-sprite-width(left);
+    $widthRight: btn-green-sprite-width(right);
+
+    @include border-radius(0px);
+    @include single-transition(opacity, .5s, ease);
+
+    line-height: 43px - (2*$btnGreenPadding);
+
+    padding: $btnGreenPadding 12px;
+    color: #fff;
+    @include btn-green-sprite(bg);
+    background-repeat: repeat-x;
+    font-size: 1.3em;
+    font-family: $fontStackHeading;
+    text-transform: uppercase;
+    position: relative;
+    margin-left: $widthLeft;
+    margin-right: $widthRight;
+    border: 0px none transparent;
+
+    opacity: 0.9;
+    &:hover {
+        opacity: 1;
+    }
+
+    &.no-transform {
+        text-transform: none;
+    }
+
+    &:before {
+        content: ' ';
+        @include btn-green-sprite(left);
+
+        position: absolute;
+        left: -1 * $widthLeft;
+        top: 0;
+
+        height: $height;
+        width: $widthLeft;
+    }
+    &:after {
+        content: ' ';
+        @include btn-green-sprite(right);
+
+        position: absolute;
+        right: -1 * $widthRight;
+        top: 0;
+
+        height: $height;
+        width: $widthRight;
+    }
+}

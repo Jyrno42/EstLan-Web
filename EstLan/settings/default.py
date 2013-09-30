@@ -37,11 +37,13 @@ ALLOWED_HOSTS = [
 ]
 
 TIME_ZONE = 'UTC'
-LANGUAGE_CODE = 'et'
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+FORMAT_MODULE_PATH = 'formats'
+
+LANGUAGE_CODE = 'et'
 
 LANGUAGES = (
     ('et', 'Eesti'),
