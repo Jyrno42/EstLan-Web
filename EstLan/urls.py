@@ -11,9 +11,9 @@ dajaxice_autodiscover()
 
 urlpatterns = patterns('',
     (r'^social_auth/', include('social_auth.urls')),
-    
+
     (r'^hulkify/', include(admin.site.urls)),
-    (r'^hulkify/admin_tools/', include('admin_tools.urls')),
+    (r'^hulkify/', include('admin_tools.urls')),
 
     (r'^', include('estlan.urls')),
 

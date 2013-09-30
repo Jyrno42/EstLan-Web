@@ -16,3 +16,6 @@ django-social-auth>=0.7.22
 git+http://github.com/pythonforfacebook/facebook-sdk.git#egg=facebook_sdk
 
 easy_thumbnails
+
+django-countries
+django-tinymce

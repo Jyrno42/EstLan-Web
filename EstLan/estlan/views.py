@@ -1,15 +1,31 @@
 # coding:utf-8
-from django.views.generic.base import TemplateView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import RequestContext
 from django.utils.timezone import datetime as d_datetime
+from django.views.generic.base import TemplateView
+
+from estlan.models import Article
 
 from datetime import timedelta
 
 
 class FrontPageView(TemplateView):
     template_name = 'Hulkify/base.html'
+    ARTICLES_PER_PAGE = 1
 
     def get(self, request, *args, **kwargs):
+        articles_list = Article.objects.filter(draft=False).order_by('publish_date')
+        paginator = Paginator(articles_list, self.ARTICLES_PER_PAGE)
+
+        page = request.GET.get('page')
+        try:
+            articles = paginator.page(page)
+        except PageNotAnInteger:
+            articles = paginator.page(1)
+        except EmptyPage:
+            articles = paginator.page(paginator.num_pages)
+
+        '''
         articles = [    {
                 'id': 2,
                 'title': 'FIFA Tournament',
@@ -27,7 +43,7 @@ class FrontPageView(TemplateView):
                 'cover_image': None
             }
         ]
-
+        '''
 
         return self.render_to_response(RequestContext(request, {
             'articles': articles

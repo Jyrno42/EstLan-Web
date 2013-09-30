@@ -11,7 +11,7 @@
                 <span>{{ article.publish_date|date:"DATETIME_FORMAT" }}</span>
             </div>
 
-            <p>{{ article.short_text }}</p>
+            {{ article.short_text|safe }}
 
             <button class="btn btn-green">{% trans "Read More" %}</button>
             <a class="btn btn-link">{% trans "Comments" %}</a>
@@ -21,6 +21,20 @@
     {% empty %}
         {% include "Hulkify/blocks/no_news.html" %}
     {% endfor %}
+
+    {% if articles %}
+
+        {% if articles.has_previous %}
+            <button href="?page={{ contacts.previous_page_number }}" class="btn btn-green">{% trans "Back" %}</button>
+        {% endif %}
+
+        {% if articles.has_next %}
+            <button href="?page={{ contacts.next_page_number }}" class="btn btn-green">{% trans "Next" %}</button>
+        {% endif %}
+
+        {{ contacts.number }}/{{ contacts.paginator.num_pages }}.
+
+    {% endif %}
 
 </div>
 

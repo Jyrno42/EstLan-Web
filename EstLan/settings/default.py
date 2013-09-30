@@ -90,6 +90,13 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    # Admin tools stuff
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
+    'django.contrib.admin',
+
     # Basic django stuff
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -97,14 +104,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # Admin tools stuff
-    'django.contrib.admin',
-    'admin_tools',
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard',
-    
+
     # Utilities & stuff
     'social_auth',
     'south',
@@ -112,6 +112,7 @@ INSTALLED_APPS = (
     'compressor',
     'crispy_forms',
     'dajaxice',
+    'tinymce',
     
     # Apps for EstLan
     'utils',
