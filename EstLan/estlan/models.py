@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 
@@ -35,9 +36,18 @@ class Article(models.Model):
     short_text = HTMLField()
     content = HTMLField()
 
+    cover_image = models.ImageField(_("Cover Image"), upload_to='cover_image', null=True, blank=True)
+
     draft = models.BooleanField(_("Draft"), default=True)
     publish_date = models.DateTimeField(_("Publish Date"), default=datetime.datetime.utcnow)
 
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+
     def __unicode__(self):
         return u"%s Article: %s" % ("Published" if not self.draft else 'Draft', self.title)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify('%d-%s' % (self.pk, self.title))
+        super(Article, self).save(*args, **kwargs)
 

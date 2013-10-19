@@ -3,6 +3,7 @@ $btn-green-spacing: 2px;
 
 $btnGreenPadding: 6px;
 
+
 .btn.btn-green {
     $height: btn-green-sprite-height(bg);
     $widthLeft: btn-green-sprite-width(left);
@@ -30,6 +31,10 @@ $btnGreenPadding: 6px;
         opacity: 1;
     }
 
+    &:focus {
+        outline: none;
+    }
+
     &.no-transform {
         text-transform: none;
     }
@@ -55,5 +60,23 @@ $btnGreenPadding: 6px;
 
         height: $height;
         width: $widthRight;
+    }
+
+    &.btn-green-no-left {
+        &:before {
+            display: none;
+        }
+    }
+    &.btn-green-no-right {
+        &:after {
+            display: none;
+        }
+    }
+
+    &.no-margin-left {
+        margin-left: 0;
+    }
+    &.no-margin-right {
+        margin-right: 0;
     }
 }

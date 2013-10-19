@@ -11,10 +11,15 @@
                 <span>{{ article.publish_date|date:"DATETIME_FORMAT" }}</span>
             </div>
 
+            {% if article.cover_image %}
+                <img src="{{ article.cover_image.url }}" alt="{{ article.title }}" />
+            {% endif %}
+
+
             {{ article.short_text|safe }}
 
-            <button class="btn btn-green">{% trans "Read More" %}</button>
-            <a class="btn btn-link">{% trans "Comments" %}</a>
+            <a href="{% url 'article_slug' article_slug=article.slug %}" class="btn btn-green" >{% trans "Read More" %}</a>
+            <a href="{% url 'article_slug' article_slug=article.slug %}#comments" class="btn btn-link">{% trans "Comments" %}</a>
 
         </div>
 
@@ -24,15 +29,14 @@
 
     {% if articles %}
 
-        {% if articles.has_previous %}
-            <button href="?page={{ contacts.previous_page_number }}" class="btn btn-green">{% trans "Back" %}</button>
+        {% if articles.has_previous and articles.has_next %}
+            <button href="?page={{ articles.previous_page_number }}" class="btn btn-green btn-green-no-right no-margin-right">{% trans "Back" %}</button>
+            <button href="?page={{ articles.next_page_number }}" class="btn btn-green btn-green-no-left no-margin-left">{% trans "Next" %}</button>
+        {% elif articles.has_previous %}
+            <button href="?page={{ articles.previous_page_number }}" class="btn btn-green">{% trans "Back" %}</button>
+        {% elif articles.has_next %}
+            <button href="?page={{ articles.next_page_number }}" class="btn btn-green">{% trans "Next" %}</button>
         {% endif %}
-
-        {% if articles.has_next %}
-            <button href="?page={{ contacts.next_page_number }}" class="btn btn-green">{% trans "Next" %}</button>
-        {% endif %}
-
-        {{ contacts.number }}/{{ contacts.paginator.num_pages }}.
 
     {% endif %}
 

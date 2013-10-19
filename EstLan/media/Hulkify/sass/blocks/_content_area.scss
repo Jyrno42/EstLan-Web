@@ -67,7 +67,9 @@ $contentBg: #eee;
 
     .sidebar {
         min-height: 300px + $diagSizeBig;
-        padding: 40px;
+        padding: 40px 20px;
+
+        @import "elements/search_box";
     }
 }
 

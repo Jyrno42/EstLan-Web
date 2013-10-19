@@ -1,7 +1,9 @@
 # coding:utf-8
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import Http404
 from django.template import RequestContext
 from django.utils.timezone import datetime as d_datetime
+from django.shortcuts import get_object_or_404
 from django.views.generic.base import TemplateView
 
 from estlan.models import Article
@@ -25,28 +27,28 @@ class FrontPageView(TemplateView):
         except EmptyPage:
             articles = paginator.page(paginator.num_pages)
 
-        '''
-        articles = [    {
-                'id': 2,
-                'title': 'FIFA Tournament',
-                'short_text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                'publish_date': d_datetime.now(),
-                'draft': False,
-                'cover_image': None
-            },
-            {
-                'id': 1,
-                'title': 'Uus Web Live',
-                'short_text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                'publish_date': d_datetime.now() - timedelta(days=7),
-                'draft': False,
-                'cover_image': None
-            }
-        ]
-        '''
-
         return self.render_to_response(RequestContext(request, {
             'articles': articles
+        }))
+
+
+class ArticleView(TemplateView):
+    template_name = 'Hulkify/article.html'
+    ARTICLES_PER_PAGE = 1
+
+    def dispatch(self, request, *args, **kwargs):
+        article_id = kwargs.get('article_id', None)
+        article_slug = kwargs.get('article_slug', None)
+
+        if article_slug:
+            article = get_object_or_404(Article, slug=article_slug)
+        elif article_id:
+            article = get_object_or_404(Article, id=article_id)
+        else:
+            raise Http404
+
+        return self.render_to_response(RequestContext(request, {
+            'article': article
         }))
 
 

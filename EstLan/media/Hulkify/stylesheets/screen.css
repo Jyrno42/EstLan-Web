@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
-/* line 17, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,45 +21,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -88,7 +88,7 @@ html, body {
 
 /* line 6, ../sass/config/_body.scss */
 body {
-  background-image: url('/media/Hulkify/images/wild_oliva.png?1378899968');
+  background-image: url('/media/Hulkify/images/wild_oliva.png?1378335838');
   background-position: center center;
   background-repeat: repeat;
 }
@@ -158,7 +158,7 @@ body {
   background: url('/media/Hulkify/images/btn-green-safac1781a4.png') no-repeat;
 }
 
-/* line 6, ../sass/elements/_btn-green.scss */
+/* line 7, ../sass/elements/_btn-green.scss */
 .btn.btn-green {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -183,15 +183,19 @@ body {
   border: 0px none transparent;
   opacity: 0.9;
 }
-/* line 29, ../sass/elements/_btn-green.scss */
+/* line 30, ../sass/elements/_btn-green.scss */
 .btn.btn-green:hover {
   opacity: 1;
 }
-/* line 33, ../sass/elements/_btn-green.scss */
+/* line 34, ../sass/elements/_btn-green.scss */
+.btn.btn-green:focus {
+  outline: none;
+}
+/* line 38, ../sass/elements/_btn-green.scss */
 .btn.btn-green.no-transform {
   text-transform: none;
 }
-/* line 37, ../sass/elements/_btn-green.scss */
+/* line 42, ../sass/elements/_btn-green.scss */
 .btn.btn-green:before {
   content: ' ';
   background-position: 0 -45px;
@@ -201,7 +205,7 @@ body {
   height: 43px;
   width: 17px;
 }
-/* line 48, ../sass/elements/_btn-green.scss */
+/* line 53, ../sass/elements/_btn-green.scss */
 .btn.btn-green:after {
   content: ' ';
   background-position: 0 0;
@@ -210,6 +214,22 @@ body {
   top: 0;
   height: 43px;
   width: 20px;
+}
+/* line 66, ../sass/elements/_btn-green.scss */
+.btn.btn-green.btn-green-no-left:before {
+  display: none;
+}
+/* line 71, ../sass/elements/_btn-green.scss */
+.btn.btn-green.btn-green-no-right:after {
+  display: none;
+}
+/* line 76, ../sass/elements/_btn-green.scss */
+.btn.btn-green.no-margin-left {
+  margin-left: 0;
+}
+/* line 79, ../sass/elements/_btn-green.scss */
+.btn.btn-green.no-margin-right {
+  margin-right: 0;
 }
 
 /* line 2, ../sass/blocks/_heading.scss */
@@ -231,7 +251,7 @@ body {
 }
 /* line 15, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-brand.logo {
-  background: url('/media/Hulkify/images/logo.png?1378899968');
+  background: url('/media/Hulkify/images/logo.png?1378324908');
   width: 146px;
   height: 89px;
   line-height: 89px;
@@ -655,6 +675,11 @@ body {
   float: left;
   width: 121px;
 }
+/* line 64, ../sass/blocks/articles/_article_area.scss */
+.content_area .main_content .article_area .article img {
+  max-width: 100%;
+  height: auto;
+}
 /* line 23, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom,
 .content_area .main_content .diag-top {
@@ -708,5 +733,29 @@ body {
 /* line 68, ../sass/blocks/_content_area.scss */
 .content_area .sidebar {
   min-height: 325px;
-  padding: 40px;
+  padding: 40px 20px;
+}
+/* line 3, ../sass/elements/_search_box.scss */
+.content_area .sidebar .search-box input {
+  float: left;
+  width: 70%;
+  padding: 8px 16px;
+  height: auto;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+}
+/* line 11, ../sass/elements/_search_box.scss */
+.content_area .sidebar .search-box input:focus {
+  outline: none;
+}
+/* line 16, ../sass/elements/_search_box.scss */
+.content_area .sidebar .search-box button {
+  position: relative;
+  left: -1px;
+  float: right;
+  width: 30%;
+  margin: 0;
 }

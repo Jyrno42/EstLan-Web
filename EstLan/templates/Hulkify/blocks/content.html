@@ -13,6 +13,8 @@
     </div>
 
     <div class="col-sm-4 hidden-xs sidebar">
-        right
+        {% block search_box %}
+            {% include "Hulkify/blocks/search_box.html" %}
+        {% endblock %}
     </div>
 </div>
