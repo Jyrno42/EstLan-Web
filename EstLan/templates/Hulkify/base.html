@@ -18,7 +18,25 @@
             {% endblock %}
 
             {% block main_content_base %}
-                {% include "Hulkify/blocks/content.html" %}
+                <div class="row content_area">
+
+                    <div class="col-xs-12 col-sm-8 main_content">
+                        <div class="diag-top"><div class="diag_helper"></div></div>
+
+                        {% block article_area %}
+                            {% include "Hulkify/blocks/article_area.html" with articles=articles %}
+                        {% endblock %}
+
+                        <div class="diag-bottom"><div class="diag_helper"></div></div>
+                    </div>
+
+                    <div class="col-sm-4 hidden-xs sidebar">
+                        {% block search_box %}
+                            {% include "Hulkify/blocks/search_box.html" %}
+                        {% endblock %}
+                    </div>
+                </div>
+
             {% endblock %}
         </div>
     </div>

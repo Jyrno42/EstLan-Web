@@ -1,0 +1,36 @@
+{% load i18n %}
+
+
+<div class="article">
+    <div class="article-title">
+        {% if preview %}
+            <a href="{% url 'article_slug' article_slug=article.slug %}" class="title-heading">{{ article.title }}</a>
+        {% else %}
+            <h1>{{ article.title }}</h1>
+        {% endif %}
+        <div>{{ article.author.accountprofile.get_name }}<br>{{ article.publish_date|date:"DATETIME_FORMAT" }}</div>
+    </div>
+
+    {% if article.cover_image %}
+        <img src="{{ article.cover_image.url }}" alt="{{ article.title }}" />
+    {% endif %}
+
+    {% if preview %}
+        {{ article.short_text|safe }}
+        <a href="{% url 'article_slug' article_slug=article.slug %}" class="btn btn-green" >{% trans "Read More" %}</a>
+        <a href="{% url 'article_slug' article_slug=article.slug %}#comments" class="btn btn-link">{% trans "Comments" %}</a>
+    {% else %}
+        {{ article.content|safe }}
+
+        {% load flatpages %}
+        {% get_flatpages '/kommentaaride/kirjeldus/' as about_pages %}
+
+        <h2 class="comments-title" id="comments">{% trans "Comments" %}</h2>
+        {% if comment_desc %}
+            {{ comment_desc.content }}
+        {% else %}
+            <p>{% trans 'Comment this article...' %}</p>
+        {% endif %}
+
+    {% endif %}
+</div>

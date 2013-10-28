@@ -1,14 +1,14 @@
 # coding:utf-8
+from django.contrib.flatpages.models import FlatPage
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import Http404
 from django.template import RequestContext
-from django.utils.timezone import datetime as d_datetime
+from django.utils.timezone import datetime
+from django.utils.translation import ugettext
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import TemplateView
 
 from estlan.models import Article
-
-from datetime import timedelta
 
 
 class FrontPageView(TemplateView):
@@ -47,8 +47,14 @@ class ArticleView(TemplateView):
         else:
             raise Http404
 
+        try:
+            comment_desc = FlatPage.objects.get(url=ugettext('/comments/description/'))
+        except FlatPage.DoesNotExist:
+            comment_desc = None
+
         return self.render_to_response(RequestContext(request, {
-            'article': article
+            'article': article,
+            'comment_desc': comment_desc
         }))
 
 

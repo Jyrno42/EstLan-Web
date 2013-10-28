@@ -81,6 +81,14 @@ h1 {
   line-height: 1.1em;
 }
 
+/* line 22, ../sass/config/_fonts.scss */
+h2 {
+  font-weight: Bold;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.7em;
+  line-height: 1.1em;
+}
+
 /* line 2, ../sass/config/_body.scss */
 html, body {
   height: 100%;
@@ -627,55 +635,70 @@ body {
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* line 15, ../sass/blocks/articles/_article_area.scss */
+.content_area .main_content .article_area .article .comments-title {
+  border-top: 2px solid #268abc;
+  margin-top: 60px;
+  padding-top: 5px;
+}
+/* line 21, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article > h1, .content_area .main_content .article_area .article .article-title {
   border-bottom: 2px solid #269abc;
   margin-bottom: 20px;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 19, ../sass/blocks/articles/_article_area.scss */
-.content_area .main_content .article_area .article > h1 > h1, .content_area .main_content .article_area .article .article-title > h1 {
-  float: left;
+/* line 25, ../sass/blocks/articles/_article_area.scss */
+.content_area .main_content .article_area .article > h1 > *, .content_area .main_content .article_area .article .article-title > * {
+  width: 46%;
 }
-/* line 22, ../sass/blocks/articles/_article_area.scss */
-.content_area .main_content .article_area .article > h1 span, .content_area .main_content .article_area .article .article-title span {
+/* line 30, ../sass/blocks/articles/_article_area.scss */
+.content_area .main_content .article_area .article > h1 > h1,
+.content_area .main_content .article_area .article > h1 .title-heading, .content_area .main_content .article_area .article .article-title > h1,
+.content_area .main_content .article_area .article .article-title .title-heading {
+  float: left;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  color: #333333;
+}
+/* line 38, ../sass/blocks/articles/_article_area.scss */
+.content_area .main_content .article_area .article > h1 > div, .content_area .main_content .article_area .article .article-title > div {
   float: right;
   text-align: right;
   line-height: 1.1em;
   font-size: 1.1em;
-  padding-top: 0.8em;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 34, ../sass/blocks/articles/_article_area.scss */
+/* line 49, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article p {
   line-height: 1.2em;
   font-size: 1em;
   margin-bottom: 15px;
 }
-/* line 39, ../sass/blocks/articles/_article_area.scss */
+/* line 54, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article p strong {
   font-weight: bold;
 }
-/* line 45, ../sass/blocks/articles/_article_area.scss */
+/* line 60, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error {
   position: relative;
 }
-/* line 49, ../sass/blocks/articles/_article_area.scss */
+/* line 64, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error h1 {
   border-bottom: 0px none transparent;
 }
-/* line 53, ../sass/blocks/articles/_article_area.scss */
+/* line 68, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error > div {
   padding-left: 121px;
 }
-/* line 57, ../sass/blocks/articles/_article_area.scss */
+/* line 72, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error [class*='icon-'] {
   font-size: 7em;
   float: left;
   width: 121px;
 }
-/* line 64, ../sass/blocks/articles/_article_area.scss */
+/* line 79, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article img {
   max-width: 100%;
   height: auto;

@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from django.contrib.auth.models import User
+from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
@@ -30,6 +33,19 @@ class Location(models.Model):
         return u"Location: %s" % self.name
 
 
+class ObjectComment(models.Model):
+    user = models.ForeignKey(User, related_name='+')
+
+    comment = HTMLField()
+
+    for_content_type = models.ForeignKey(ContentType)
+    for_object_id = models.PositiveIntegerField()
+    for_object = generic.GenericForeignKey('for_content_type', 'for_object_id')
+
+    def __unicode__(self):
+        return u"Comment by %s for %s" % (self.user.accountprofile.get_name(), self.for_object)
+
+
 class Article(models.Model):
     title = models.CharField(_("Title"), max_length=100)
 
@@ -42,6 +58,10 @@ class Article(models.Model):
     publish_date = models.DateTimeField(_("Publish Date"), default=datetime.datetime.utcnow)
 
     slug = models.SlugField(max_length=100, unique=True, blank=True)
+
+    author = models.ForeignKey(User, related_name='+')
+
+    comments = generic.GenericRelation(ObjectComment)
 
     def __unicode__(self):
         return u"%s Article: %s" % ("Published" if not self.draft else 'Draft', self.title)

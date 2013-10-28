@@ -12,19 +12,34 @@
             font-family: $fontStackHeading;
         }
 
+        .comments-title {
+            border-top: 2px solid #268abc;
+            margin-top: 60px;
+            padding-top: 5px;
+        }
+
         > h1, .article-title {
             border-bottom: 2px solid #269abc;
             margin-bottom: 20px;
 
-            > h1 {
-                float: left;
+            > * {
+                width: 46%;
             }
-            span {
+
+            > h1,
+            .title-heading {
+                float: left;
+                font-family: $fontStackHeading;
+                font-size: 2em;
+                font-weight: bold;
+                color: #333333;
+            }
+
+            > div {
                 float: right;
                 text-align: right;
                 line-height: 1.1em;
                 font-size: 1.1em;
-                padding-top: 0.8em;
 
                 @include clearfix;
             }
