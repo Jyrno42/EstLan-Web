@@ -4,7 +4,11 @@
 <div class="article">
     <div class="article-title">
         {% if preview %}
-            <a href="{% url 'article_slug' article_slug=article.slug %}" class="title-heading">{{ article.title }}</a>
+            {% if article.slug %}
+                <a href="{% url 'article_slug' article_slug=article.slug %}" class="title-heading">{{ article.title }}</a>
+            {% else %}
+                <a href="{% url 'article' article_id=article.id %}" class="title-heading">{{ article.title }}</a>
+            {% endif %}
         {% else %}
             <h1>{{ article.title }}</h1>
         {% endif %}
@@ -17,13 +21,16 @@
 
     {% if preview %}
         {{ article.short_text|safe }}
-        <a href="{% url 'article_slug' article_slug=article.slug %}" class="btn btn-green" >{% trans "Read More" %}</a>
-        <a href="{% url 'article_slug' article_slug=article.slug %}#comments" class="btn btn-link">{% trans "Comments" %} ({{ article.comment_count }})</a>
+
+        {% if article.slug %}
+            <a href="{% url 'article_slug' article_slug=article.slug %}" class="btn btn-green" >{% trans "Read More" %}</a>
+            <a href="{% url 'article_slug' article_slug=article.slug %}#comments" class="btn btn-link">{% trans "Comments" %} ({{ article.comment_count }})</a>
+        {% else %}
+            <a href="{% url 'article' article_id=article.id %}" class="btn btn-green" >{% trans "Read More" %}</a>
+            <a href="{% url 'article' article_id=article.id %}#comments" class="btn btn-link">{% trans "Comments" %} ({{ article.comment_count }})</a>
+        {% endif %}
     {% else %}
         {{ article.content|safe }}
-
-        {% load flatpages %}
-        {% get_flatpages '/kommentaaride/kirjeldus/' as about_pages %}
 
         <h2 class="comments-title" id="comments">{% trans "Comments" %}</h2>
         {% if comment_desc %}
