@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     (r'^', include('estlan.urls')),
 
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+
+    url('', include('social.apps.django_app.urls', namespace='social'))
 )
 
 if settings.DEBUG:

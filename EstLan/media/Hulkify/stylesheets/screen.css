@@ -89,6 +89,14 @@ h2 {
   line-height: 1.1em;
 }
 
+/* line 29, ../sass/config/_fonts.scss */
+h3 {
+  font-weight: Bold;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
 /* line 2, ../sass/config/_body.scss */
 html, body {
   height: 100%;

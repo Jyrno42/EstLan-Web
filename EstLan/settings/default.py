@@ -109,7 +109,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
 
     # Utilities & stuff
-    'social_auth',
+    'social.apps.django_app.default',
     'south',
     'easy_thumbnails',
     'compressor',
@@ -153,41 +153,38 @@ LOGGING = {
 
 SESSION_COOKIE_AGE = 604800
 
-'''
-SOCIAL_AUTH_PIPELINE = (
-    'social_auth.backends.pipeline.social.social_auth_user',
-    #'detect_new',
-    #'associate_to_email_when_no_socialauth',
-    #'associate_to_loggedin_user',
-    'social_auth.backends.pipeline.user.get_username',
-    #'create_user',
-    'social_auth.backends.pipeline.social.associate_user',
-    'social_auth.backends.pipeline.social.load_extra_data',
-    #'update_new_users_details',
-    #'update_fb_extra_data',
-    #'update_google_extra_data',
+SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
 )
-
-SOCIAL_AUTH_DEFAULT_USERNAME = 'custom_sa_auth_user'
-SOCIAL_AUTH_SESSION_EXPIRATION = False
-
-AUTH_PROFILE_MODULE = 'account.UserProfile'
-
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.facebook.FacebookBackend',
-    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-    'account.backends.EmailAuthBackend', # Log in by email:password
 )
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+SOCIAL_AUTH_FACEBOOK_KEY = ''
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-LOGIN_ERROR_URL = '/sc_login_error'
-SOCIAL_AUTH_COMPLETE_URL_NAME = 'socialauth_complete'
-SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
-'''
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_SLUGIFY_USERNAMES = True
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
 
 # FACEBOOK & GOOGLE APP
 
@@ -219,8 +216,10 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
-    
-    'social_auth.context_processors.social_auth_by_name_backends',
+
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+
     'django.core.context_processors.request',
 ]
 

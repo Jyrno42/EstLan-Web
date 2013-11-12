@@ -51,10 +51,10 @@
 
         {% else %}
             <div class="comments-actions">
-                Log in with
+                <h3>Log in with</h3>
                 <div>
-                    {% include 'Hulkify/elements/button_login.html' with button_classes="btn-green-no-right no-margin-right" button_label="Facebook" %}
-                    {% include 'Hulkify/elements/button_login.html' with button_classes="btn-green-no-left no-margin-left" button_label="Google+" %}
+                    <a href="{% url 'social:begin' "facebook" %}?next={{ request.path }}" class="btn btn-green btn-green-no-right no-margin-right" >Facebook</a>
+                    <a href="{% url 'social:begin' "google-oauth2" %}?next={{ request.path }}" class="btn btn-green btn-green-no-left no-margin-left" >Google+</a>
                 </div>
             </div>
         {% endif %}
