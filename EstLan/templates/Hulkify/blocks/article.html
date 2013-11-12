@@ -12,7 +12,7 @@
         {% else %}
             <h1>{{ article.title }}</h1>
         {% endif %}
-        <div>{{ article.author.accountprofile.get_name }}<br>{{ article.publish_date|date:"DATETIME_FORMAT" }}</div>
+        <div>{{ article.author.get_name }}<br>{{ article.publish_date|date:"DATETIME_FORMAT" }}</div>
     </div>
 
     {% if article.cover_image %}
@@ -46,7 +46,7 @@
 
         {% if request.user.is_authenticated %}
             <div class="align-right commenting-as">
-                {% trans "Commenting as: " %}<span>{{ request.user.accountprofile.get_name }}</span>
+                {% trans "Commenting as: " %}<span>{{ request.user.get_name }}</span>
             </div>
             <div contenteditable="true" class="comments-textarea prefilled" id="comment-editor">
                 <em>{% trans "Click to comment" %}</em>

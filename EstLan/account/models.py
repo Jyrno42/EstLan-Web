@@ -1,15 +1,13 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-class AccountProfile(models.Model):
-    user = models.OneToOneField(User)
-
+class User(AbstractUser):
     def __unicode__(self):
-        return u"Profile: %s" % self.get_name()
+        return u"User: %s" % self.get_name()
 
     def get_name(self):
-        if self.user.first_name:
-            return self.user.get_full_name()
+        if self.first_name:
+            return self.get_full_name()
         else:
-            return self.user.email
+            return self.email
 

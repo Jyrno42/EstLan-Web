@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
+import datetime
 
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
-from django.utils import timezone
-
 from django_countries import CountryField
 from tinymce.models import HTMLField
-
-import datetime
 
 
 class Location(models.Model):
@@ -33,7 +30,7 @@ class Location(models.Model):
 
 
 class ObjectComment(models.Model):
-    user = models.ForeignKey(User, related_name='+')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='+')
 
     comment = HTMLField()
 
@@ -44,7 +41,7 @@ class ObjectComment(models.Model):
     timestamp = models.DateTimeField(_("Timestamp"), default=datetime.datetime.utcnow)
 
     def __unicode__(self):
-        return u"Comment by %s for %s" % (self.user.accountprofile.get_name(), self.for_object)
+        return u"Comment by %s for %s" % (self.user.get_name(), self.for_object)
 
 
 class Article(models.Model):
@@ -57,7 +54,7 @@ class Article(models.Model):
     publish_date = models.DateTimeField(_("Publish Date"), default=datetime.datetime.utcnow)
 
     slug = models.SlugField(max_length=100, unique=True, blank=True)
-    author = models.ForeignKey(User, related_name='+')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='+')
 
     draft = models.BooleanField(_("Draft"), default=True)
     pinned = models.BooleanField(_("Pinned"), default=False)
@@ -69,6 +66,6 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify('%d-%s' % (self.pk, self.title))
+            self.slug = slugify('%d-%s' % (self.id if self.id else 1, self.title))
         super(Article, self).save(*args, **kwargs)
 

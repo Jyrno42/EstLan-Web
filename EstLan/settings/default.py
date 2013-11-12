@@ -151,6 +151,7 @@ LOGGING = {
 
 # Social auth and generic session conf
 
+AUTH_USER_MODEL = 'account.User'
 SESSION_COOKIE_AGE = 604800
 
 SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (

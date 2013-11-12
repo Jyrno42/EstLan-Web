@@ -7,7 +7,7 @@
 
     <div class="comment-right">
         <div class="comment-about">
-            <span class="comment-user">{{ comment.user.accountprofile.get_name }}</span>
+            <span class="comment-user">{{ comment.user.get_name }}</span>
             <span class="comment-timeago timeago" title="{{ comment.timestamp }}"></span>
         </div>
         <div class="comment-text">
