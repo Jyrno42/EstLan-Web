@@ -15,6 +15,7 @@ $diagSizeSmall: 10px;
 $articleMarginBottom: 40px;
 
 $estLanGreen: mix(#1D4810, #1D2D14);
+$estLanGreenLight: #1D4810;
 
 @mixin diagonal_corners($size: 20px, $color: Red) {
     &:before {

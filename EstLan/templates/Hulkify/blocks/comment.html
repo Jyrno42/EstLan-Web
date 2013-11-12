@@ -1,0 +1,17 @@
+
+
+<div class="comment">
+    <div class="comment-left">
+        <img src="http://a.disquscdn.com/1383952229/build/next/assets/img/noavatar92.png">
+    </div>
+
+    <div class="comment-right">
+        <div class="comment-about">
+            <span class="comment-user">{{ comment.user.accountprofile.get_name }}</span>
+            <span class="comment-timeago timeago" title="{{ comment.timestamp }}"></span>
+        </div>
+        <div class="comment-text">
+            {{ comment.comment|safe }}
+        </div>
+    </div>
+</div>

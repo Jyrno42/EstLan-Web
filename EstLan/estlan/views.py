@@ -27,13 +27,17 @@ class FrontPageView(TemplateView):
         except EmptyPage:
             articles = paginator.page(paginator.num_pages)
 
+        for article in articles:
+            print article.comments.all().count()
+            setattr(article, 'comment_count', article.comments.all().count())
+
         return self.render_to_response(RequestContext(request, {
             'articles': articles
         }))
 
 
 class ArticleView(TemplateView):
-    template_name = 'Hulkify/article.html'
+    template_name = 'Hulkify/article_view.html'
     ARTICLES_PER_PAGE = 1
 
     def dispatch(self, request, *args, **kwargs):

@@ -18,7 +18,7 @@
     {% if preview %}
         {{ article.short_text|safe }}
         <a href="{% url 'article_slug' article_slug=article.slug %}" class="btn btn-green" >{% trans "Read More" %}</a>
-        <a href="{% url 'article_slug' article_slug=article.slug %}#comments" class="btn btn-link">{% trans "Comments" %}</a>
+        <a href="{% url 'article_slug' article_slug=article.slug %}#comments" class="btn btn-link">{% trans "Comments" %} ({{ article.comment_count }})</a>
     {% else %}
         {{ article.content|safe }}
 
@@ -29,8 +29,41 @@
         {% if comment_desc %}
             {{ comment_desc.content }}
         {% else %}
-            <p>{% trans 'Comment this article...' %}</p>
+            <p>
+                {% blocktrans %}
+                    Feel free to post your thoughts on this article, use only English, don't go offtopic and read FAQ
+                    before asking a question. Owners of this website aren't responsible for content of comments.
+                {% endblocktrans %}
+            </p>
         {% endif %}
+
+        {% if request.user.is_authenticated %}
+            <div class="align-right commenting-as">
+                {% trans "Commenting as: " %}<span>{{ request.user.accountprofile.get_name }}</span>
+            </div>
+            <div contenteditable="true" class="comments-textarea prefilled" id="comment-editor">
+                <em>{% trans "Click to comment" %}</em>
+            </div>
+
+            <div class="align-right">
+                <a href="" class="btn btn-green" >{% trans "Comment" %}</a>
+            </div>
+
+        {% else %}
+            <div class="comments-actions">
+                Log in with
+                <div>
+                    {% include 'Hulkify/elements/button_login.html' with button_classes="btn-green-no-right no-margin-right" button_label="Facebook" %}
+                    {% include 'Hulkify/elements/button_login.html' with button_classes="btn-green-no-left no-margin-left" button_label="Google+" %}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="comment-area">
+            {% for comment in article.comments.all %}
+                {% include 'Hulkify/blocks/comment.html' %}
+            {% endfor %}
+        </div>
 
     {% endif %}
 </div>

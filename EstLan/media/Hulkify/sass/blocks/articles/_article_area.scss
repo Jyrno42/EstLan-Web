@@ -46,7 +46,7 @@
             @include clearfix;
         }
 
-        p {
+        > p {
             line-height: 1.2em;
             font-size: 1em;
             margin-bottom: 15px;
@@ -80,6 +80,8 @@
             max-width: 100%;
             height: auto;
         }
+
+        @import 'blocks/articles/comment_area';
     }
 
 }

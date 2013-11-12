@@ -15,7 +15,6 @@ import datetime
 
 
 class Location(models.Model):
-
     name = models.CharField(_("Location Name"), max_length=100)
     description = models.TextField(_("Description"))
 
@@ -42,6 +41,8 @@ class ObjectComment(models.Model):
     for_object_id = models.PositiveIntegerField()
     for_object = generic.GenericForeignKey('for_content_type', 'for_object_id')
 
+    timestamp = models.DateTimeField(_("Timestamp"), default=datetime.datetime.utcnow)
+
     def __unicode__(self):
         return u"Comment by %s for %s" % (self.user.accountprofile.get_name(), self.for_object)
 
@@ -53,15 +54,15 @@ class Article(models.Model):
     content = HTMLField()
 
     cover_image = models.ImageField(_("Cover Image"), upload_to='cover_image', null=True, blank=True)
-
-    draft = models.BooleanField(_("Draft"), default=True)
     publish_date = models.DateTimeField(_("Publish Date"), default=datetime.datetime.utcnow)
 
     slug = models.SlugField(max_length=100, unique=True, blank=True)
-
     author = models.ForeignKey(User, related_name='+')
 
-    comments = generic.GenericRelation(ObjectComment)
+    draft = models.BooleanField(_("Draft"), default=True)
+    pinned = models.BooleanField(_("Pinned"), default=False)
+
+    comments = generic.GenericRelation(ObjectComment, object_id_field='for_object_id', content_type_field='for_content_type')
 
     def __unicode__(self):
         return u"%s Article: %s" % ("Published" if not self.draft else 'Draft', self.title)

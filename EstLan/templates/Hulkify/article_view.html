@@ -1,0 +1,58 @@
+{% extends "Hulkify/base.html" %}
+
+{% load i18n %}
+
+
+{% block tagline_base %}{% endblock %}
+{% block hero-unit_base %}{% endblock %}
+
+
+{% block article_area %}
+    <div class="article_area">
+        {% include "Hulkify/blocks/article.html" %}
+    </div>
+{% endblock %}
+
+{% block extra_body_scripts %} {{ block.super }}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $commentsArea = $('.comments-textarea');
+
+            $commentsArea.ckeditor({
+                toolbar : [
+                    ['Styles','Format','Font','FontSize'],
+                    '/',
+                    ['Bold','Italic','Underline','StrikeThrough','-','Undo','Redo','-','Cut','Copy','Paste','-','Outdent','Indent'],
+                    '/',
+                    ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+                    ['-','Link','Smiley','BGColor']
+                ]
+            });
+
+            $commentsArea.on('activate', function () {
+                if ($(this).hasClass('prefilled')) {
+                    $(this).empty().removeClass('prefilled');
+                    var range, sel;
+                    if ((sel = document.selection) && document.body.createTextRange) {
+                        range = document.body.createTextRange();
+                        range.moveToElementText(this);
+                        range.select();
+                    }
+                }
+            });
+
+            $commentsArea.focus(function () {
+                if ($(this).hasClass('prefilled')) {
+                    if (this.hasChildNodes() && document.createRange && window.getSelection) {
+                        $(this).empty().removeClass('prefilled');
+                        var range = document.createRange();
+                        range.selectNodeContents(this);
+                        var sel = window.getSelection();
+                        sel.removeAllRanges();
+                        sel.addRange(range);
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}
