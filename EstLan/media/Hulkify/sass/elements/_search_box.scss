@@ -1,5 +1,7 @@
 
 .search-box {
+    @include pie-clearfix;
+
     input {
         float: left;
         width: 70%;
@@ -20,5 +22,4 @@
         width: 30%;
         margin: 0;
     }
-
 }

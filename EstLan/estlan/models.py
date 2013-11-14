@@ -10,6 +10,8 @@ from django.utils.translation import ugettext_lazy as _
 from django_countries import CountryField
 from tinymce.models import HTMLField
 
+import logging
+
 
 class Location(models.Model):
     name = models.CharField(_("Location Name"), max_length=100)
@@ -44,6 +46,25 @@ class ObjectComment(models.Model):
         return u"Comment by %s for %s" % (self.user.get_name(), self.for_object)
 
 
+class ArticleCategory(models.Model):
+    name = models.CharField(_('Category name'), max_length=30)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+
+    parent = models.ForeignKey('self', blank=True, null=True, related_name='children')
+
+    def __unicode__(self):
+        return u"Category %s" % (self.name)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify('%s' % (self.name))
+        return super(ArticleCategory, self).save(*args, **kwargs)
+
+    def get_children(self):
+        logging.warning('AAAA:', ArticleCategory.objects.filter(parent_id=self.id))
+        return ArticleCategory.objects.filter(parent_id=self.id)
+
+
 class Article(models.Model):
     title = models.CharField(_("Title"), max_length=100)
 
@@ -61,11 +82,16 @@ class Article(models.Model):
 
     comments = generic.GenericRelation(ObjectComment, object_id_field='for_object_id', content_type_field='for_content_type')
 
+    categories = models.ManyToManyField(ArticleCategory)
+
     def __unicode__(self):
         return u"%s Article: %s" % ("Published" if not self.draft else 'Draft', self.title)
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify('%d-%s' % (self.id if self.id else 1, self.title))
-        super(Article, self).save(*args, **kwargs)
+        return super(Article, self).save(*args, **kwargs)
+
+    def get_categories(self):
+        return self.categories.all()
 

@@ -12,7 +12,25 @@
         {% else %}
             <h1>{{ article.title }}</h1>
         {% endif %}
-        <div>{{ article.author.get_name }}<br>{{ article.publish_date|date:"DATETIME_FORMAT" }}</div>
+
+        <div>
+            {% with article.get_categories as categories %}
+                {% with article.author.get_name as author %}
+                    {% with article.publish_date|date:"SHORT_DATETIME_FORMAT" as timestamp %}
+                        {% blocktrans %}Posted on {{ timestamp }}{% endblocktrans %}
+                        {% if categories %}
+                            {% trans 'in' %}
+                            {% for category in categories %}
+                                <a href="{% url 'category' category_slug=category.slug %}">{{ category.name }}</a>{% if not forloop.last %},{% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% blocktrans %}
+                            by {{ author }}
+                        {% endblocktrans %}
+                    {% endwith %}
+                {% endwith %}
+            {% endwith %}
+        </div>
     </div>
 
     {% if article.cover_image %}

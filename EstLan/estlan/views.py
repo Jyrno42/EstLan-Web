@@ -8,16 +8,35 @@ from django.utils.translation import ugettext
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import TemplateView
 
-from estlan.models import Article
+from estlan.models import Article, ArticleCategory
 
 
 class FrontPageView(TemplateView):
     template_name = 'Hulkify/base.html'
     ARTICLES_PER_PAGE = 1
 
+    def handle_cat(self, categories):
+        ret = list()
+
+        for cat in categories:
+            inner = {
+                'item': cat,
+                'children': list()
+            }
+            child = cat.get_children()
+            if child:
+                inner['children'] = self.handle_cat(child)
+            ret.append(inner)
+        return ret
+
     def get(self, request, *args, **kwargs):
-        articles_list = Article.objects.filter(draft=False).order_by('publish_date')
-        paginator = Paginator(articles_list, self.ARTICLES_PER_PAGE)
+        queryset = Article.objects.filter(draft=False).order_by('publish_date')
+
+        cat_slug = kwargs.get('category_slug', False)
+        if cat_slug:
+            queryset = queryset.filter(categories__slug=cat_slug)
+
+        paginator = Paginator(queryset, self.ARTICLES_PER_PAGE)
 
         page = request.GET.get('page')
         try:
@@ -28,11 +47,13 @@ class FrontPageView(TemplateView):
             articles = paginator.page(paginator.num_pages)
 
         for article in articles:
-            print article.comments.all().count()
             setattr(article, 'comment_count', article.comments.all().count())
 
+        categories = self.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
+
         return self.render_to_response(RequestContext(request, {
-            'articles': articles
+            'articles': articles,
+            'categories': categories
         }))
 
 

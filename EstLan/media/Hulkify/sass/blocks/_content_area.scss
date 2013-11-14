@@ -70,6 +70,15 @@ $contentBg: #eee;
         padding: 40px 20px;
 
         @import "elements/search_box";
+
+        h4 {
+            margin-top: 20px;
+            text-transform: uppercase;
+            color: #777777;
+            font-weight: bold;
+            font-family: $fontStackHeading;
+            font-size: 1.6em;
+        }
     }
 }
 

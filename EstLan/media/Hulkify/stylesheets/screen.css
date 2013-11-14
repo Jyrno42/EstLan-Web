@@ -1,69 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
-/* line 17, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-/* line 22, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-html {
-  line-height: 1;
-}
-
-/* line 24, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
-  list-style: none;
-}
-
-/* line 26, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* line 28, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-/* line 30, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-q, blockquote {
-  quotes: none;
-}
-/* line 103, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-/* line 32, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-a img {
-  border: none;
-}
-
-/* line 116, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
-  display: block;
-}
-
 /* line 7, ../sass/config/_fonts.scss */
 .tagline {
   color: #E9E9E9;
@@ -657,61 +592,50 @@ body {
 .content_area .main_content .article_area .article > h1, .content_area .main_content .article_area .article .article-title {
   border-bottom: 2px solid #269abc;
   margin-bottom: 20px;
-  overflow: hidden;
-  *zoom: 1;
 }
-/* line 25, ../sass/blocks/articles/_article_area.scss */
-.content_area .main_content .article_area .article > h1 > *, .content_area .main_content .article_area .article .article-title > * {
-  width: 46%;
-}
-/* line 30, ../sass/blocks/articles/_article_area.scss */
+/* line 26, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article > h1 > h1,
 .content_area .main_content .article_area .article > h1 .title-heading, .content_area .main_content .article_area .article .article-title > h1,
 .content_area .main_content .article_area .article .article-title .title-heading {
-  float: left;
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 2em;
   font-weight: bold;
   color: #333333;
 }
-/* line 38, ../sass/blocks/articles/_article_area.scss */
+/* line 33, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article > h1 > div, .content_area .main_content .article_area .article .article-title > div {
-  float: right;
-  text-align: right;
   line-height: 1.1em;
   font-size: 1.1em;
-  overflow: hidden;
-  *zoom: 1;
 }
-/* line 49, ../sass/blocks/articles/_article_area.scss */
+/* line 39, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article > p {
   line-height: 1.2em;
   font-size: 1em;
   margin-bottom: 15px;
 }
-/* line 54, ../sass/blocks/articles/_article_area.scss */
+/* line 44, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article > p strong {
   font-weight: bold;
 }
-/* line 60, ../sass/blocks/articles/_article_area.scss */
+/* line 50, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error {
   position: relative;
 }
-/* line 64, ../sass/blocks/articles/_article_area.scss */
+/* line 54, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error h1 {
   border-bottom: 0px none transparent;
 }
-/* line 68, ../sass/blocks/articles/_article_area.scss */
+/* line 58, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error > div {
   padding-left: 121px;
 }
-/* line 72, ../sass/blocks/articles/_article_area.scss */
+/* line 62, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error [class*='icon-'] {
   font-size: 7em;
   float: left;
   width: 121px;
 }
-/* line 79, ../sass/blocks/articles/_article_area.scss */
+/* line 69, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article img {
   max-width: 100%;
   height: auto;
@@ -858,7 +782,17 @@ body {
   min-height: 325px;
   padding: 40px 20px;
 }
-/* line 3, ../sass/elements/_search_box.scss */
+/* line 2, ../sass/elements/_search_box.scss */
+.content_area .sidebar .search-box {
+  *zoom: 1;
+}
+/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.content_area .sidebar .search-box:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 5, ../sass/elements/_search_box.scss */
 .content_area .sidebar .search-box input {
   float: left;
   width: 70%;
@@ -870,15 +804,24 @@ body {
   -o-border-radius: 0px;
   border-radius: 0px;
 }
-/* line 11, ../sass/elements/_search_box.scss */
+/* line 13, ../sass/elements/_search_box.scss */
 .content_area .sidebar .search-box input:focus {
   outline: none;
 }
-/* line 16, ../sass/elements/_search_box.scss */
+/* line 18, ../sass/elements/_search_box.scss */
 .content_area .sidebar .search-box button {
   position: relative;
   left: -1px;
   float: right;
   width: 30%;
   margin: 0;
+}
+/* line 74, ../sass/blocks/_content_area.scss */
+.content_area .sidebar h4 {
+  margin-top: 20px;
+  text-transform: uppercase;
+  color: #777777;
+  font-weight: bold;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.6em;
 }

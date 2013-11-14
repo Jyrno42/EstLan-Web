@@ -1,4 +1,6 @@
 {% extends "Hulkify/root.html" %}
+{% load i18n %}
+
 
 {% block html_body %}
 
@@ -33,6 +35,10 @@
                     <div class="col-sm-4 hidden-xs sidebar">
                         {% block search_box %}
                             {% include "Hulkify/blocks/search_box.html" %}
+                        {% endblock %}
+                        {% block categories %}
+                            <h4>{% trans "Categories" %}</h4>
+                            {% include "Hulkify/blocks/categories.html" %}
                         {% endblock %}
                     </div>
                 </div>

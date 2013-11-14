@@ -1,0 +1,24 @@
+
+{% if categories %}
+    <ul>
+    {% for item in categories %}
+        <li>
+            <a href="{% url 'category' category_slug=item.item.slug %}">{{ item.item.name }}</a>
+
+            {# TODO: Allow more levels of depth. #}
+
+            {% if item.children|length > 0 %}
+                {% with categories=item.children %}
+                    <ul>
+                        {% for item in categories %}
+                            <li>
+                                <a href="{% url 'category' category_slug=item.item.slug %}">{{ item.item.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endwith %}
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}

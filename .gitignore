@@ -34,3 +34,5 @@ env
 *.*.swp
 *.idea*
 
+
+/EstLan/media/cover_image
