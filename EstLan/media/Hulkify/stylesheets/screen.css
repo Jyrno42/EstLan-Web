@@ -352,12 +352,38 @@ body {
   vertical-align: top;
 }
 /* line 105, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .carousel-caption {
+  color: #fff;
+  text-align: left;
+  left: 5%;
+  right: 50%;
+  padding: 15px 25px;
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 114, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .carousel-caption:hover {
+  color: #fff;
+}
+/* line 117, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .carousel-caption:hover h3 {
+  text-decoration: underline;
+}
+/* line 122, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .carousel-caption h3 {
+  margin-top: 0;
+}
+/* line 127, ../sass/blocks/_hero_unit.scss */
 .hero_base .hero .container .hero-control {
   position: absolute;
   bottom: 20px;
   right: 20px;
 }
-/* line 110, ../sass/blocks/_hero_unit.scss */
+/* line 132, ../sass/blocks/_hero_unit.scss */
 .hero_base .hero .container .hero-control .btn {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -376,26 +402,30 @@ body {
   -o-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
-/* line 120, ../sass/blocks/_hero_unit.scss */
+/* line 142, ../sass/blocks/_hero_unit.scss */
 .hero_base .hero .container .hero-control .btn:hover {
   opacity: 1;
 }
-/* line 125, ../sass/blocks/_hero_unit.scss */
+/* line 146, ../sass/blocks/_hero_unit.scss */
+.hero_base .hero .container .hero-control .btn:focus {
+  outline: 0px none transparent;
+}
+/* line 151, ../sass/blocks/_hero_unit.scss */
 .hero_base .hero .container .hero-control .btn.slide_l_or_r {
   line-height: 30px;
 }
-/* line 127, ../sass/blocks/_hero_unit.scss */
+/* line 153, ../sass/blocks/_hero_unit.scss */
 .hero_base .hero .container .hero-control .btn.slide_l_or_r .icon-prev:before {
   content: '\2039';
   font-size: 30px;
 }
-/* line 131, ../sass/blocks/_hero_unit.scss */
+/* line 157, ../sass/blocks/_hero_unit.scss */
 .hero_base .hero .container .hero-control .btn.slide_l_or_r .icon-next:before {
   content: '\203a';
   font-size: 30px;
 }
 @media (min-width: 400px) {
-  /* line 138, ../sass/blocks/_hero_unit.scss */
+  /* line 164, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero .container .hero-control .btn:first-child {
     text-indent: -20px;
   }
@@ -411,7 +441,7 @@ body {
     border-right: 20px solid #1d3a12;
     border-top: 20px solid transparent;
   }
-  /* line 142, ../sass/blocks/_hero_unit.scss */
+  /* line 168, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero .container .hero-control .btn:last-child {
     text-indent: 20px;
     margin-right: 20px;
@@ -436,12 +466,12 @@ body {
   }
 }
 @media (max-width: 1200px) {
-  /* line 158, ../sass/blocks/_hero_unit.scss */
+  /* line 184, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero_top {
     height: 10px;
     margin-right: 10px;
   }
-  /* line 162, ../sass/blocks/_hero_unit.scss */
+  /* line 188, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero_top .hero_corner_top_right {
     right: -10px;
     height: 10px;
@@ -449,7 +479,7 @@ body {
     border-left-width: 10px;
     border-top-width: 10px;
   }
-  /* line 169, ../sass/blocks/_hero_unit.scss */
+  /* line 195, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero_top .hero_corner_top_right2 {
     right: -2.07107px;
     top: 7.92893px;
@@ -459,12 +489,12 @@ body {
     border-bottom-width: 10px;
     z-index: 999;
   }
-  /* line 181, ../sass/blocks/_hero_unit.scss */
+  /* line 207, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero_bottom {
     height: 10px;
     margin-left: 10px;
   }
-  /* line 185, ../sass/blocks/_hero_unit.scss */
+  /* line 211, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero_bottom .hero_corner_bottom_left {
     left: -10px;
     height: 10px;
@@ -472,7 +502,7 @@ body {
     border-right-width: 10px;
     border-bottom-width: 10px;
   }
-  /* line 193, ../sass/blocks/_hero_unit.scss */
+  /* line 219, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero_bottom .hero_corner_bottom_left2 {
     left: -2.07107px;
     bottom: 7.92893px;
@@ -481,25 +511,25 @@ body {
     border-left-width: 10px;
     border-top-width: 10px;
   }
-  /* line 203, ../sass/blocks/_hero_unit.scss */
+  /* line 229, ../sass/blocks/_hero_unit.scss */
   .hero_base .hero {
     border-left-width: 10px;
     border-right-width: 10px;
   }
 }
 
-/* line 210, ../sass/blocks/_hero_unit.scss */
+/* line 236, ../sass/blocks/_hero_unit.scss */
 .jumbotron.hero {
   padding: 0;
   margin: 0;
 }
-/* line 213, ../sass/blocks/_hero_unit.scss */
+/* line 239, ../sass/blocks/_hero_unit.scss */
 .jumbotron.hero .container {
   padding: 0;
   margin: 0;
 }
 
-/* line 219, ../sass/blocks/_hero_unit.scss */
+/* line 245, ../sass/blocks/_hero_unit.scss */
 .jumbotron.hero {
     /*@include border-radius(0px);
 

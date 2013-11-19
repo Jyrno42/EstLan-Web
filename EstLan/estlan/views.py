@@ -13,7 +13,7 @@ from estlan.models import Article, ArticleCategory
 
 class FrontPageView(TemplateView):
     template_name = 'Hulkify/base.html'
-    ARTICLES_PER_PAGE = 1
+    ARTICLES_PER_PAGE = 15
 
     def handle_cat(self, categories):
         ret = list()
@@ -30,7 +30,9 @@ class FrontPageView(TemplateView):
         return ret
 
     def get(self, request, *args, **kwargs):
-        queryset = Article.objects.filter(draft=False).order_by('publish_date')
+        queryset = Article.objects.filter(draft=False).order_by('-publish_date')
+
+        featured_posts = queryset.filter(pinned=True).exclude(cover_image=None)
 
         cat_slug = kwargs.get('category_slug', False)
         if cat_slug:
@@ -53,7 +55,8 @@ class FrontPageView(TemplateView):
 
         return self.render_to_response(RequestContext(request, {
             'articles': articles,
-            'categories': categories
+            'categories': categories,
+            'featured_posts': featured_posts,
         }))
 
 
@@ -79,7 +82,7 @@ class ArticleView(TemplateView):
 
         return self.render_to_response(RequestContext(request, {
             'article': article,
-            'comment_desc': comment_desc
+            'comment_desc': comment_desc,
         }))
 
 
