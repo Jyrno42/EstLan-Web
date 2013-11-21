@@ -4,4 +4,4 @@ EstLan-Web
 Installing
 ----------
 
-See deploy/INSTALL.rst
+See [Install instructions](deploy/INSTALL.rst)
