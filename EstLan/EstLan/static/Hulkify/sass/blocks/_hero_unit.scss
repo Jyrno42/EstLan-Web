@@ -1,0 +1,301 @@
+$jumbotronBg: #D5D5D5;
+$heroBtnColor: mix(#1D4810, #1D2D14);
+
+.hero_base {
+    position: relative;
+    margin-bottom: 40px;
+
+    $overlaySize: $diagSizeBig;
+    $overlaySizeSmall: $diagSizeSmall;
+
+    $hypLen: sqrt(pow($overlaySize, 2) + pow($overlaySize, 2));
+    $diagHeight: $hypLen / 2;
+    $movDiag: sqrt(pow($overlaySize - $diagHeight, 2) / 2);
+
+    $hypLenSmall: sqrt(pow($overlaySizeSmall, 2) + pow($overlaySizeSmall, 2));
+    $diagHeightSmall: $hypLenSmall / 2;
+    $movDiagSmall: sqrt(pow($overlaySizeSmall - $diagHeightSmall, 2) / 2);
+
+    .hero_top {
+        background: $jumbotronBg;
+        height: $overlaySize;
+        margin-right: $overlaySize;
+        top: 0;
+        position: relative;
+        z-index: 99;
+
+        .hero_corner_top_right {
+            content: "";
+            position: absolute;
+            right: -1 * $overlaySize * 2 + ($overlaySize);
+            top: 0px;
+
+            height: $overlaySize;
+            width: $overlaySize;
+            border-left: $overlaySize solid $jumbotronBg;
+            border-top: $overlaySize solid transparent;
+        }
+
+        .hero_corner_top_right2 {
+            content: "";
+            position: absolute;
+            right: -$movDiag;
+            top: $overlaySize - $movDiag;
+
+            height: $overlaySize;
+            width: $overlaySize;
+            border-right: $overlaySize solid $jumbotronBg;
+            border-bottom: $overlaySize solid transparent;
+        }
+    }
+
+    .hero_bottom {
+        background: $jumbotronBg;
+        height: $overlaySize;
+        margin-left: $overlaySize;
+        bottom: 0;
+        position: relative;
+        z-index: 99;
+
+        .hero_corner_bottom_left {
+            content: "";
+            position: absolute;
+            left: -1 * $overlaySize * 2 + ($overlaySize);
+            bottom: 0px;
+            z-index: 99;
+
+            height: $overlaySize;
+            width: $overlaySize;
+            border-right: $overlaySize solid $jumbotronBg;
+            border-bottom: $overlaySize solid transparent;
+        }
+        .hero_corner_bottom_left2 {
+            content: "";
+            position: absolute;
+            left: -$movDiag;
+            bottom: $overlaySize - $movDiag;
+
+            height: $overlaySize;
+            width: $overlaySize;
+            border-left: $overlaySize solid $jumbotronBg;
+            border-top: $overlaySize solid transparent;
+        }
+    }
+
+    .hero {
+        @include border-radius(0px);
+
+        border-left: $overlaySize solid $jumbotronBg;
+        border-right: $overlaySize solid $jumbotronBg;
+
+        position: relative;
+        margin: 0;
+
+        padding: 0;
+
+        .container {
+            background: #000000;
+            padding: 0;
+            margin: 0;
+            
+            img {
+                vertical-align: top;
+            }
+
+            .carousel-caption {
+                color: #fff;
+                text-align: left;
+                left: 5%;
+                right: 50%;
+                padding: 15px 25px;
+                background: rgba(#000, 0.35);
+                @include border-radius(5px);
+
+                &:hover {
+                    color: #fff;
+
+                    h3 {
+                        text-decoration: underline;
+                    }
+                }
+
+                h3 {
+                    margin-top: 0;
+                }
+            }
+
+            .hero-control {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+
+                .btn {
+                    @include border-radius(0px);
+                    border: 0px none transparent;
+                    background: $heroBtnColor;
+                    font-weight: bold;
+                    position: relative;
+                    height: 48px;
+                    min-width: 71px;
+
+                    opacity: 0.8;
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    &:focus {
+                        outline: 0px none transparent;
+                    }
+
+                    @include single-transition(opacity, .5s, ease);
+                    &.slide_l_or_r {
+                        line-height: 30px;
+                        .icon-prev:before {
+                            content: '\2039';
+                            font-size: 30px;
+                        }
+                        .icon-next:before {
+                            content: '\203a';
+                            font-size: 30px;
+                        }
+                    }
+
+                    @media (min-width: 400px) {
+                        &:first-child {
+                            text-indent: -20px;
+                            @include btn_corner(20px, $heroBtnColor);
+                        }
+                        &:last-child {
+                            text-indent: 20px;
+                            @include btn_corner(20px, $heroBtnColor, left, bottom, -1, right);
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+            @media (min-width: 768px) {
+                max-width: none;
+            }
+        }
+    }
+
+
+    @media (max-width: 1200px) {
+        .hero_top {
+            height: $overlaySizeSmall;
+            margin-right: $overlaySizeSmall;
+
+            .hero_corner_top_right {
+                right: -1 * $overlaySizeSmall * 2 + ($overlaySizeSmall);
+                height: $overlaySizeSmall;
+                width: $overlaySizeSmall;
+                border-left-width: $overlaySizeSmall;
+                border-top-width: $overlaySizeSmall;
+            }
+            .hero_corner_top_right2 {
+                right: -$movDiagSmall;
+                top: $overlaySizeSmall - $movDiagSmall;
+
+                height: $overlaySizeSmall;
+                width: $overlaySizeSmall;
+
+                border-right-width: $overlaySizeSmall;
+                border-bottom-width: $overlaySizeSmall;
+                z-index: 999;
+            }
+        }
+        .hero_bottom {
+            height: $overlaySizeSmall;
+            margin-left: $overlaySizeSmall;
+
+            .hero_corner_bottom_left {
+                left: -1 * $overlaySizeSmall * 2 + ($overlaySizeSmall);
+
+                height: $overlaySizeSmall;
+                width: $overlaySizeSmall;
+                border-right-width: $overlaySizeSmall;
+                border-bottom-width: $overlaySizeSmall;
+            }
+            .hero_corner_bottom_left2 {
+                left: -$movDiagSmall;
+                bottom: $overlaySizeSmall - $movDiagSmall;
+
+                height: $overlaySizeSmall;
+                width: $overlaySizeSmall;
+                border-left-width: $overlaySizeSmall;
+                border-top-width: $overlaySizeSmall;
+            }
+        }
+        .hero {
+            border-left-width: $overlaySizeSmall;
+            border-right-width: $overlaySizeSmall;
+        }
+    }
+}
+
+.jumbotron.hero {
+    padding: 0;
+    margin: 0;
+    .container {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.jumbotron.hero {
+    //background: $jumbotronBg;
+    /*@include border-radius(0px);
+
+    min-height: 355px;
+    position: relative;
+    margin: 0 25px 40px;
+
+    @include diagonal_corners(20px, $jumbotronBg);
+
+    .hero-control {
+        position: absolute;
+        bottom: 20px;
+        right: 0px;
+
+        .btn {
+            @include border-radius(0px);
+            border: 0px none transparent;
+            background: $heroBtnColor;
+            font-weight: bold;
+            position: relative;
+            height: 48px;
+            min-width: 71px;
+
+            opacity: 0.8;
+            &:hover {
+                opacity: 1;
+            }
+
+            @include single-transition(opacity, .5s, ease);
+            &.slide_l_or_r {
+                line-height: 30px;
+                .icon-prev:before {
+                    content: '\2039';
+                    font-size: 30px;
+                }
+                .icon-next:before {
+                    content: '\203a';
+                    font-size: 30px;
+                }
+            }
+
+            @media (min-width: 400px) {
+                &:first-child {
+                    text-indent: -20px;
+                    @include btn_corner(20px, $heroBtnColor);
+                }
+                &:last-child {
+                    text-indent: 20px;
+                    @include btn_corner(20px, $heroBtnColor, left, bottom, -1, right);
+                    margin-right: 20px;
+                }
+            }
+
+        }
+    }*/
+}

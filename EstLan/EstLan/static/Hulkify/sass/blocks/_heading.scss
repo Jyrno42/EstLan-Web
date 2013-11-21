@@ -1,0 +1,64 @@
+
+.estlan-navbar {
+    font-family: $fontStackHeading;
+
+    @include single-box-shadow(rgba(0, 0, 0, 0.7), 0, 4px, 4px);
+
+    .container {
+        max-width: 900px;
+
+        @media (min-width: 768px) {
+            padding-right: 40px;
+        }
+    }
+
+    .navbar-brand.logo {
+        background: image-url("logo.png");
+        width: 146px;
+        height: 89px;
+        line-height: 89px;
+        margin: 5px 15px 0 90px;
+        @media (max-width: 767px) {
+            margin-left: 10px;
+        }
+    }
+
+    .navbar-nav > li > a {
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: bold;
+        opacity: 0.8;
+        @include single-transition(all, .5s, ease);
+
+        &:hover, &.active {
+            opacity: 1;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            background: #545454;
+            width: 1px;
+            right: 0px;
+            top: 40px;
+            bottom: 40px;
+            z-index: 30;
+        }
+    }
+
+    .nav.navbar-nav.pull-right {
+        float: left !important;
+    }
+
+    .navbar-nav > li:last-child > a {
+        &:after {
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .navbar-collapse {
+            background-color: #eee;
+        }
+    }
+}
