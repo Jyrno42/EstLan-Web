@@ -10,10 +10,11 @@ log*/
 
 # Cached stuff
 EstLan/media/CACHE/
-/EstLan/media/Hulkify/.sass-cache
+EstLan/EstLan/static/Hulkify/.sass-cache*
 
 # Database file
 EstLan/*.db
+EstLan/*.sqlite3
 
 # User media
 EstLan/media/uploads
