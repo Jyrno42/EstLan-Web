@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 from django_countries import CountryField
@@ -44,6 +45,11 @@ class ObjectComment(models.Model):
 
     def __unicode__(self):
         return u"Comment by %s for %s" % (self.user.get_name(), self.for_object)
+
+    def save(self, *args, **kwargs):
+        if not self.timestamp:
+            self.timestamp = timezone.now()
+        return super(ObjectComment, self).save(*args, **kwargs)
 
 
 class ArticleCategory(models.Model):

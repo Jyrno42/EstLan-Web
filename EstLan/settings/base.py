@@ -165,7 +165,7 @@ ROOT_URLCONF = 'EstLan.urls'
 
 WSGI_APPLICATION = 'EstLan.wsgi.application'
 
-FORMAT_MODULE_PATH = 'EstLan.formats'
+FORMAT_MODULE_PATH = 'formats'
 
 
 LOGIN_REDIRECT_URL = '/'

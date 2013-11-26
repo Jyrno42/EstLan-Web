@@ -25,15 +25,7 @@
 
 
     &.prefilled {
-        min-height: 40px;
-
-        em {
-            color: #777777;
-            font-size: 1.6em;
-            font-weight: bold;
-            opacity: 0.8;
-            line-height: 1em;
-        }
+        height: 40px;
     }
 }
 
@@ -47,6 +39,9 @@
     padding-top: 15px;
 
     .comment {
+        @include pie-clearfix;
+        margin-bottom: 15px;
+
         .comment-left {
             float: left;
             width: 80px;

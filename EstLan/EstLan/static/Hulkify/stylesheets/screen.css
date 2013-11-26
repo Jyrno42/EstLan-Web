@@ -39,7 +39,7 @@ html, body {
 
 /* line 6, ../sass/config/_body.scss */
 body {
-  background-image: url('/static/Hulkify/images/wild_oliva.png?1385041434');
+  background-image: url('/static/Hulkify/images/wild_oliva.png?1385505241');
   background-position: center center;
   background-repeat: repeat;
 }
@@ -211,7 +211,7 @@ body {
 }
 /* line 15, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-brand.logo {
-  background: url('/static/Hulkify/images/logo.png?1385041434');
+  background: url('/static/Hulkify/images/logo.png?1385505241');
   width: 146px;
   height: 89px;
   line-height: 89px;
@@ -704,60 +704,63 @@ body {
 }
 /* line 27, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comments-textarea.prefilled {
-  min-height: 40px;
+  height: 40px;
 }
-/* line 30, ../sass/blocks/articles/_comment_area.scss */
-.content_area .main_content .article_area .article .comments-textarea.prefilled em {
-  color: #777777;
-  font-size: 1.6em;
-  font-weight: bold;
-  opacity: 0.8;
-  line-height: 1em;
-}
-/* line 40, ../sass/blocks/articles/_comment_area.scss */
+/* line 32, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comments-actions {
   margin-bottom: 25px;
 }
-/* line 44, ../sass/blocks/articles/_comment_area.scss */
+/* line 36, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area {
   border-top: 2px solid #268abc;
   margin-top: 15px;
   padding-top: 15px;
 }
-/* line 50, ../sass/blocks/articles/_comment_area.scss */
+/* line 41, ../sass/blocks/articles/_comment_area.scss */
+.content_area .main_content .article_area .article .comment-area .comment {
+  *zoom: 1;
+  margin-bottom: 15px;
+}
+/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.content_area .main_content .article_area .article .comment-area .comment:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 45, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area .comment .comment-left {
   float: left;
   width: 80px;
 }
-/* line 54, ../sass/blocks/articles/_comment_area.scss */
+/* line 49, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area .comment .comment-left img {
   height: auto;
   width: 70px;
 }
-/* line 59, ../sass/blocks/articles/_comment_area.scss */
+/* line 54, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area .comment .comment-right {
   padding-left: 80px;
 }
-/* line 62, ../sass/blocks/articles/_comment_area.scss */
+/* line 57, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area .comment .comment-right .comment-about {
   border-bottom: 2px solid #999999;
   padding-bottom: 2px;
 }
-/* line 66, ../sass/blocks/articles/_comment_area.scss */
+/* line 61, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area .comment .comment-right .comment-about > * {
   font-size: 0.99em;
   line-height: 1.1em;
 }
-/* line 71, ../sass/blocks/articles/_comment_area.scss */
+/* line 66, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area .comment .comment-right .comment-about .comment-user {
   color: #1d4810;
   font-weight: bold;
 }
-/* line 75, ../sass/blocks/articles/_comment_area.scss */
+/* line 70, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area .comment .comment-right .comment-about .comment-timeago {
   color: #666;
 }
-/* line 80, ../sass/blocks/articles/_comment_area.scss */
+/* line 75, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comment-area .comment .comment-right .comment-text {
   padding-top: 3px;
 }
@@ -820,7 +823,7 @@ body {
 .content_area .sidebar .search-box {
   *zoom: 1;
 }
-/* line 38, ../../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .content_area .sidebar .search-box:after {
   content: "";
   display: table;

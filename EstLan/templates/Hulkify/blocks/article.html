@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 
 <div class="article">
@@ -63,17 +64,7 @@
         {% endif %}
 
         {% if request.user.is_authenticated %}
-            <div class="align-right commenting-as">
-                {% trans "Commenting as: " %}<span>{{ request.user.get_name }}</span>
-            </div>
-            <div contenteditable="true" class="comments-textarea prefilled" id="comment-editor">
-                <em>{% trans "Click to comment" %}</em>
-            </div>
-
-            <div class="align-right">
-                <a href="" class="btn btn-green" >{% trans "Comment" %}</a>
-            </div>
-
+            {% crispy form %}
         {% else %}
             <div class="comments-actions">
                 <h3>Log in with</h3>

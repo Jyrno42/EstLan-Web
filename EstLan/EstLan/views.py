@@ -1,7 +1,8 @@
 # coding:utf-8
 from django.contrib.flatpages.models import FlatPage
+from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.template import RequestContext
 from django.utils.timezone import datetime
 from django.utils.translation import ugettext
@@ -9,13 +10,15 @@ from django.shortcuts import get_object_or_404
 from django.views.generic.base import TemplateView
 
 from EstLan.models import Article, ArticleCategory
+from EstLan.forms import ArticleCommentForm
 
 
 class FrontPageView(TemplateView):
     template_name = 'Hulkify/base.html'
     ARTICLES_PER_PAGE = 15
 
-    def handle_cat(self, categories):
+    @staticmethod
+    def handle_cat(categories):
         ret = list()
 
         for cat in categories:
@@ -25,7 +28,7 @@ class FrontPageView(TemplateView):
             }
             child = cat.get_children()
             if child:
-                inner['children'] = self.handle_cat(child)
+                inner['children'] = FrontPageView.handle_cat(child)
             ret.append(inner)
         return ret
 
@@ -51,7 +54,7 @@ class FrontPageView(TemplateView):
         for article in articles:
             setattr(article, 'comment_count', article.comments.all().count())
 
-        categories = self.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
+        categories = FrontPageView.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
 
         return self.render_to_response(RequestContext(request, {
             'articles': articles,
@@ -75,15 +78,27 @@ class ArticleView(TemplateView):
         else:
             raise Http404
 
+        form = ArticleCommentForm(data=request.POST or None, user=request.user, article=article)
+
+        if request.POST:
+            if form.is_valid():
+                form.save()
+
+                return HttpResponseRedirect(reverse('article', kwargs={'article_id': article.id}))
+
         try:
             comment_desc = FlatPage.objects.get(url=ugettext('/comments/description/'))
         except FlatPage.DoesNotExist:
             comment_desc = None
 
+        categories = FrontPageView.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
+
         return self.render_to_response(RequestContext(request, {
             'article': article,
             'comment_desc': comment_desc,
-            'comments': article.comments.all().order_by('-timestamp')
+            'comments': article.comments.all().order_by('-timestamp'),
+            'categories': categories,
+            'form': form,
         }))
 
 
