@@ -83,6 +83,7 @@ class ArticleView(TemplateView):
         return self.render_to_response(RequestContext(request, {
             'article': article,
             'comment_desc': comment_desc,
+            'comments': article.comments.all().order_by('-timestamp')
         }))
 
 

@@ -84,11 +84,13 @@
             </div>
         {% endif %}
 
-        <div class="comment-area">
-            {% for comment in article.comments.all %}
-                {% include 'Hulkify/blocks/comment.html' %}
-            {% endfor %}
-        </div>
+        {% if comments %}
+            <div class="comment-area">
+                {% for comment in comments %}
+                    {% include 'Hulkify/blocks/comment.html' %}
+                {% endfor %}
+            </div>
+        {% endif %}
 
     {% endif %}
 </div>

@@ -16,6 +16,7 @@ import os
 # SITE_NAME
 SITE_NAME = u'EstLan'
 SITE_VERSION = u'0.0.2a'
+SITE_ID = 1
 
 # Build paths inside the project like this: os.path.join(SITE_ROOT, ...)
 SITE_ROOT = os.path.dirname(os.path.dirname(__file__))
