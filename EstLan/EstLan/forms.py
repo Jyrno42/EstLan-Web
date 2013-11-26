@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _, ugettext
 from EstLan.models import ObjectComment
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Div, HTML, Layout, Field, Button
+from crispy_forms.layout import Div, HTML, Layout, Field
 
 
 class ArticleCommentForm(ModelForm):

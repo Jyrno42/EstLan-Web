@@ -15,9 +15,11 @@
                 {% include "Hulkify/blocks/tagline.html" %}
             {% endblock %}
 
-            {% block hero-unit_base %}
-                {% include "Hulkify/blocks/hero-unit.html" %}
-            {% endblock %}
+            {% if show_hero_unit %}
+                {% block hero-unit_base %}
+                    {% include "Hulkify/blocks/hero-unit.html" %}
+                {% endblock %}
+            {% endif %}
 
             {% block main_content_base %}
                 <div class="row content_area">

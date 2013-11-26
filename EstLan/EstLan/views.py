@@ -1,4 +1,5 @@
 # coding:utf-8
+from django.db.models import Q
 from django.contrib.flatpages.models import FlatPage
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -37,6 +38,11 @@ class FrontPageView(TemplateView):
 
         featured_posts = queryset.filter(pinned=True).exclude(cover_image=None)
 
+        query = request.GET.get('query', '')
+
+        if query:
+            queryset = queryset.filter(Q(title__icontains=query) | Q(short_text__icontains=query) | Q(content__icontains=query))
+
         cat_slug = kwargs.get('category_slug', False)
         if cat_slug:
             queryset = queryset.filter(categories__slug=cat_slug)
@@ -60,6 +66,7 @@ class FrontPageView(TemplateView):
             'articles': articles,
             'categories': categories,
             'featured_posts': featured_posts,
+            'show_hero_unit': not query and not cat_slug,
         }))
 
 

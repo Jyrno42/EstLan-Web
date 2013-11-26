@@ -67,7 +67,6 @@ class ArticleCategory(models.Model):
         return super(ArticleCategory, self).save(*args, **kwargs)
 
     def get_children(self):
-        logging.warning('AAAA:', ArticleCategory.objects.filter(parent_id=self.id))
         return ArticleCategory.objects.filter(parent_id=self.id)
 
 

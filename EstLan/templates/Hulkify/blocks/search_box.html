@@ -1,7 +1,7 @@
 {% load i18n %}
 
 
-<div class="search-box">
-    <input type="text" class="input-lg">
-    <button class="btn btn-green btn-green-no-left">{% trans 'Search' %}</button>
-</div>
+<form class="search-box" method="get" action="{% url 'frontpage' %}">
+    <input type="text" class="input-lg" name="query" value="{{ request.GET.query }}">
+    <button type="submit" class="btn btn-green btn-green-no-left">{% trans 'Search' %}</button>
+</form>
