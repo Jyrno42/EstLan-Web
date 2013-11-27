@@ -26,7 +26,7 @@ class ArticleCommentForm(ModelForm):
         self.helper.layout = Layout(
             Div(
                 HTML(_('Commenting as: ')),
-                HTML('<span>%s</span>' % self.user.get_name()),
+                HTML('<span>%s</span>' % self.user.get_name() if self.user.is_authenticated() else ''),
                 css_class='align-right commenting-as'
             ),
 
