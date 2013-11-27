@@ -17,3 +17,4 @@ facebook-sdk
 easy_thumbnails
 django-countries
 django-tinymce
+django-ckeditor
