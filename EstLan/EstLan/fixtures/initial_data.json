@@ -1,0 +1,11 @@
+[
+    {
+        "pk": 1,
+        "model": "EstLan.articlecategory",
+        "fields": {
+            "name": "General",
+            "parent": null,
+            "slug": "general"
+        }
+    }
+]
