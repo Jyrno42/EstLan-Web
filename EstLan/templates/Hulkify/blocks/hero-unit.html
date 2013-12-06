@@ -1,3 +1,5 @@
+{% load thumbnail %}
+
 
 {% if featured_posts %}
     <div class="hero_base">
@@ -9,7 +11,7 @@
                 <div class="carousel-inner">
                     {% for hero_article in featured_posts %}
                         <div class="item {% if forloop.first %}active{% endif %}">
-                            <img src="{{ hero_article.cover_image.url }}" width="100%" />
+                            <img src="{% thumbnail hero_article.cover_image 966x506 autocrop crop upscale %}" />
 
                             {# TODO: Replace this with permalink to model :) #}
                             <a class="carousel-caption" href="{% if hero_article.slug %}{% url 'article_slug' article_slug=hero_article.slug %}{% else %}{% url 'article' article_id=hero_article.id %}{% endif %}">
