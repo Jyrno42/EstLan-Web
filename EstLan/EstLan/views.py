@@ -36,7 +36,9 @@ class FrontPageView(TemplateView):
     def get(self, request, *args, **kwargs):
         queryset = Article.objects.filter(draft=False).order_by('-publish_date')
 
-        featured_posts = queryset.filter(pinned=True).exclude(cover_image=None)
+        # Fixes #10
+        featured_posts = queryset.filter(pinned=True).exclude(cover_image__isnull=True, cover_image='')
+        featured_posts = filter(lambda x: x.cover_image.name != '', featured_posts)
 
         query = request.GET.get('query', '')
 
