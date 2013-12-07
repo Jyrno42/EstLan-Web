@@ -672,6 +672,10 @@ body {
   max-width: 100%;
   height: auto;
 }
+/* line 74, ../sass/blocks/articles/_article_area.scss */
+.content_area .main_content .article_area .article .sharethis-container {
+  text-align: right;
+}
 /* line 2, ../sass/blocks/articles/_comment_area.scss */
 .content_area .main_content .article_area .article .comments-title + p {
   color: #888;
