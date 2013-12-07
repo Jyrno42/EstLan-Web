@@ -60,5 +60,18 @@
             "slug": "contact",
             "order": 3
         }
+    },
+    {
+        "pk": 4,
+        "model": "EstLan.custompage",
+        "fields": {
+            "author": null,
+            "menu": 1,
+            "title": "Partners",
+            "content": "partners",
+            "draft": false,
+            "slug": "partners",
+            "order": 4
+        }
     }
 ]
