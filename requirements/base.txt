@@ -17,4 +17,4 @@ facebook-sdk
 easy_thumbnails
 django-countries
 django-tinymce
-django-ckeditor
+django-ckeditor-updated==4.2.3

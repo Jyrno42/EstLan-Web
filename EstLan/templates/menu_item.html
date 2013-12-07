@@ -1,0 +1,5 @@
+{% for item in menu_items %}
+    <li class="{% if item.get_absolute_url == path %}active{% endif %}">
+        <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+    </li>
+{% endfor %}

@@ -10,8 +10,9 @@ from django.utils.translation import ugettext
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import TemplateView
 
-from EstLan.models import Article, ArticleCategory
 from EstLan.forms import ArticleCommentForm
+from EstLan.models import Article, ArticleCategory, CustomPage
+from EstLan.utils import get_menu_items
 
 
 class FrontPageView(TemplateView):
@@ -111,3 +112,23 @@ class ArticleView(TemplateView):
         }))
 
 
+class CustomPageView(TemplateView):
+    template_name = 'flatpages/default.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        page_id = kwargs.get('page_id', None)
+        page_slug = kwargs.get('page_slug', None)
+
+        if page_slug:
+            page = get_object_or_404(CustomPage, slug=page_slug)
+        elif page_id:
+            page = get_object_or_404(CustomPage, id=page_id)
+        else:
+            raise Http404
+
+        categories = FrontPageView.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
+
+        return self.render_to_response(RequestContext(request, {
+            'flatpage': page,
+            'categories': categories,
+        }))

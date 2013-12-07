@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'compressor',
     'crispy_forms',
     'tinymce',
+    'ckeditor',
 
     # Apps for EstLan
     'accounts',
@@ -257,7 +258,6 @@ COMPRESS_JS_FILTERS = [
     'compressor.filters.jsmin.SlimItFilter',
 ]
 
-
 # Email settings
 SEND_EMAIL = False
 DEFAULT_FROM_EMAIL = 'info@estlan.eu'
@@ -269,3 +269,5 @@ EMAIL_HOST_USER = None
 EMAIL_HOST_PASSWORD = None
 EMAIL_PORT = 587
 
+# Ckeditor settings
+CKEDITOR_UPLOAD_PATH = os.path.join(SITE_ROOT, 'media/uploads/ckeditor')

@@ -1,7 +1,7 @@
 from django.forms import ModelForm, Textarea
 from django.utils.translation import ugettext_lazy as _, ugettext
 
-from EstLan.models import ObjectComment
+from EstLan.models import ObjectComment, CustomPage
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Div, HTML, Layout, Field

@@ -11,6 +11,8 @@ from django.utils.translation import ugettext_lazy as _
 from django_countries import CountryField
 from tinymce.models import HTMLField
 
+from ckeditor.fields import RichTextField
+
 import logging
 
 
@@ -100,3 +102,30 @@ class Article(models.Model):
     def get_categories(self):
         return self.categories.all()
 
+
+class SiteMenu(models.Model):
+    tag = models.CharField(_('Tag'), max_length=16, unique=True, blank=True)
+
+    def __str__(self):
+        return "Menu %s" % (self.tag)
+
+class CustomPage(models.Model):
+    slug = models.CharField(_('Slug'), max_length=100, unique=True, blank=True)
+    title = models.CharField(_('title'), max_length=200)
+    content = RichTextField(_('content'), blank=True)
+
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='+', blank=True, null=True)
+    menu = models.ForeignKey(SiteMenu, related_name='+')
+
+    draft = models.BooleanField(_("Draft"), default=True)
+    order = models.PositiveIntegerField()
+
+    def __str__(self):
+        return "Page: %s at /%s" % (self.title, self.slug)
+
+    @models.permalink
+    def get_absolute_url(self):
+        if self.slug:
+            return ("page_slug", [self.slug,])
+        else:
+            return ("page", [self.id,])
