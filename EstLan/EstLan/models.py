@@ -120,6 +120,8 @@ class CustomPage(models.Model):
     draft = models.BooleanField(_("Draft"), default=True)
     order = models.PositiveIntegerField()
 
+    url = models.URLField('URL', blank=True, null=True)
+
     def __str__(self):
         return "Page: %s at /%s" % (self.title, self.slug)
 
