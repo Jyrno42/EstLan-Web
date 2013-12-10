@@ -12,7 +12,7 @@ pytz>=2013b
 
 Pillow
 oauth2>=1.5.211
-python-social-auth==0.1.16
+python-social-auth==0.1.17
 facebook-sdk
 easy_thumbnails
 django-countries
