@@ -41,3 +41,13 @@ LOGGING['loggers'][''] = {
     'level': 'INFO',
     'filters': ['require_debug_false'],
 }
+LOGGING['loggers']['django'] = {
+    'handlers': ['info_log', 'mail_admins'],
+    'propagate': True,
+    'level': 'INFO',
+}
+LOGGING['loggers']['django.reques'] = {
+    'handlers': ['info_log', 'error_log', 'mail_admins'],
+    'propagate': True,
+    'level': 'ERROR',
+}
