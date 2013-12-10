@@ -11,7 +11,7 @@ TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = [
     'estlan.eu',
-    'demo.th3f0x.com', # TODO: Once moved to real domain
+    'ts.estlan.eu',
 ]
 
 SEND_EMAIL = False
