@@ -39,7 +39,7 @@ html, body {
 
 /* line 6, ../sass/config/_body.scss */
 body {
-  background-image: url('/static/Hulkify/images/wild_oliva.png?1385505241');
+  background-image: url('/assets/Hulkify/images/wild_oliva.png?1386755545');
   background-position: center center;
   background-repeat: repeat;
 }
@@ -113,7 +113,7 @@ body {
 
 /* line 58, btn-green/*.png */
 .btn-green-sprite, .btn.btn-green, .btn.btn-green:before, .btn.btn-green:after {
-  background: url('/static/Hulkify/images/btn-green-safac1781a4.png') no-repeat;
+  background: url('/assets/Hulkify/images/btn-green-safac1781a4.png') no-repeat;
 }
 
 /* line 7, ../sass/elements/_btn-green.scss */
@@ -209,7 +209,7 @@ body {
 }
 /* line 15, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-brand.logo {
-  background: url('/static/Hulkify/images/logo.png?1385505241');
+  background: url('/assets/Hulkify/images/logo.png?1386755545');
   width: 146px;
   height: 89px;
   line-height: 89px;
@@ -723,7 +723,7 @@ body {
   *zoom: 1;
   margin-bottom: 15px;
 }
-/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .content_area .main_content .article_area .article .comment-area .comment:after {
   content: "";
   display: table;
@@ -825,7 +825,7 @@ body {
 .content_area .sidebar .search-box {
   *zoom: 1;
 }
-/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .content_area .sidebar .search-box:after {
   content: "";
   display: table;

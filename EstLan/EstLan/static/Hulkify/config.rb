@@ -1,2 +1,2 @@
-http_path = "/static/Hulkify/"
+http_path = "/assets/Hulkify/"
 
