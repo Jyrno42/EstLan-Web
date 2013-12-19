@@ -49,5 +49,5 @@ LOGGING['loggers']['django'] = {
 LOGGING['loggers']['django.request'] = {
     'handlers': ['info_log', 'error_log', 'mail_admins'],
     'propagate': True,
-    'level': 'ERROR',
+    'level': 'INFO',
 }
