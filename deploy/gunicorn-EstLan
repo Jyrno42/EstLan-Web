@@ -1,0 +1,77 @@
+#!/bin/sh
+
+# From http://drumcoder.co.uk/blog/2010/jul/30/simple-debian-init-script-gunicorn/
+
+### BEGIN INIT INFO
+# Provides:       gunicorn-EstLan
+# Required-Start: $local_fs $syslog
+# Required-Stop:  $local_fs $syslog
+# Default-Start:  2 3 4 5
+# Default-Stop:   0 1 6
+# Short-Description: Gunicorn processes for drumcoder
+### END INIT INFO
+
+CONFDIR="/srv/EstLan"
+NAME="EstLan"
+
+USER=jyrno
+GROUP=$USER
+GUNICORN_RUN="gunicorn_django"
+PID="/var/run/gunicorn-EstLan-"$NAME".pid"
+LOGFILE="/var/log/gateme/gunicorn-EstLan.log"
+PATH=/usr/local/bin:/usr/bin:/bin
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+RETVAL=0
+
+# source function library
+. /lib/lsb/init-functions
+
+start()
+{
+    echo "Starting $NAME."
+    export PYTHONPATH=$CONFDIR;
+    cd $CONFDIR/$NAME;
+
+    . $CONFDIR/venv/bin/activate
+    #gunicorn_django --user=$USER --group=$GROUP --daemon -c gateme-gunicorn.py -p $PID --log-file=$LOGFILE && echo "OK" || echo "failed";
+    /srv/EstLan/venv/bin/gunicorn -c gunicorn-settings.py EstLan.wsgi:application && echo "OK" || echo "failed";
+    #su -c "$GUNICORN_RUN -c gateme-gunicorn.py -p $PID --log-file=$LOGFILE &" $USER && echo "OK" || echo "failed";
+}
+
+stop()
+{
+    echo "Stopping $NAME"
+    kill -QUIT `cat $PID` && echo "OK" || echo "failed";
+}
+
+reload()
+{
+    echo "Reloading $NAME:"
+    if [ -f $PID ]
+    then kill -HUP `cat $PID` && echo "OK" || echo "failed";
+    fi
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        reload
+        ;;
+    reload)
+        reload
+        ;;
+    force-reload)
+        stop && start
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|restart}"
+        RETVAL=1
+esac
+exit $RETVAL
+

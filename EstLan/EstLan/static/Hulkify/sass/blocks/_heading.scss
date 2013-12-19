@@ -8,7 +8,8 @@
         max-width: 900px;
 
         @media (min-width: 768px) {
-            padding-right: 40px;
+            padding-right: 0px;
+            padding-left: 0px;
         }
     }
 
@@ -18,8 +19,9 @@
         height: 89px;
         line-height: 89px;
         margin: 5px 15px 0 90px;
-        @media (max-width: 767px) {
-            margin-left: 10px;
+        @media (max-width: 1000px) {
+            margin-left: 0px;
+            margin-right: 0px;
         }
     }
 

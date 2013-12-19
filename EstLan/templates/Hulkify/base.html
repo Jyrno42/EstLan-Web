@@ -38,10 +38,25 @@
                         {% block search_box %}
                             {% include "Hulkify/blocks/search_box.html" %}
                         {% endblock %}
+
+                        {% block login %}
+                            {% if request.user.is_authenticated %}
+                                <h4>{% trans "Hey, " %}{{ request.user.get_name }}</h4>
+                                <a href="{% url 'logout' %}" class="btn-link">{% trans "Log out" %}</a>
+                            {% else %}
+                                <h4>{% trans "Log in" %}</h4>
+                                <div>
+                                    <a href="{% url 'social:begin' "facebook" %}?next={{ request.path }}" class="btn btn-green btn-green-no-right no-margin-right" >Facebook</a>
+                                    <a href="{% url 'social:begin' "google-oauth2" %}?next={{ request.path }}" class="btn btn-green btn-green-no-left no-margin-left" >Google+</a>
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+
                         {% block categories %}
                             <h4>{% trans "Categories" %}</h4>
                             {% include "Hulkify/blocks/categories.html" %}
                         {% endblock %}
+
                     </div>
                 </div>
 

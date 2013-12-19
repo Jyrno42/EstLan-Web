@@ -170,7 +170,7 @@ FORMAT_MODULE_PATH = 'formats'
 
 
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'login'
+LOGIN_URL = 'frontpage'
 
 
 # Crispy-forms

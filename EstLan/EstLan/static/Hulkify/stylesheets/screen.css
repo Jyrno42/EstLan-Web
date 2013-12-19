@@ -39,7 +39,7 @@ html, body {
 
 /* line 6, ../sass/config/_body.scss */
 body {
-  background-image: url('/assets/Hulkify/images/wild_oliva.png?1386755545');
+  background-image: url('/assets/Hulkify/images/wild_oliva.png?1385505241');
   background-position: center center;
   background-repeat: repeat;
 }
@@ -204,24 +204,26 @@ body {
 @media (min-width: 768px) {
   /* line 7, ../sass/blocks/_heading.scss */
   .estlan-navbar .container {
-    padding-right: 40px;
+    padding-right: 0px;
+    padding-left: 0px;
   }
 }
-/* line 15, ../sass/blocks/_heading.scss */
+/* line 16, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-brand.logo {
-  background: url('/assets/Hulkify/images/logo.png?1386755545');
+  background: url('/assets/Hulkify/images/logo.png?1385505241');
   width: 146px;
   height: 89px;
   line-height: 89px;
   margin: 5px 15px 0 90px;
 }
-@media (max-width: 767px) {
-  /* line 15, ../sass/blocks/_heading.scss */
+@media (max-width: 1000px) {
+  /* line 16, ../sass/blocks/_heading.scss */
   .estlan-navbar .navbar-brand.logo {
-    margin-left: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
-/* line 26, ../sass/blocks/_heading.scss */
+/* line 28, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a {
   text-transform: uppercase;
   font-size: 18px;
@@ -232,11 +234,11 @@ body {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-/* line 33, ../sass/blocks/_heading.scss */
+/* line 35, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a:hover, .estlan-navbar .navbar-nav > li > a.active {
   opacity: 1;
 }
-/* line 37, ../sass/blocks/_heading.scss */
+/* line 39, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a:after {
   content: "";
   position: absolute;
@@ -247,16 +249,16 @@ body {
   bottom: 40px;
   z-index: 30;
 }
-/* line 49, ../sass/blocks/_heading.scss */
+/* line 51, ../sass/blocks/_heading.scss */
 .estlan-navbar .nav.navbar-nav.pull-right {
   float: left !important;
 }
-/* line 54, ../sass/blocks/_heading.scss */
+/* line 56, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li:last-child > a:after {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 60, ../sass/blocks/_heading.scss */
+  /* line 62, ../sass/blocks/_heading.scss */
   .estlan-navbar .navbar-collapse {
     background-color: #eee;
   }
@@ -723,7 +725,7 @@ body {
   *zoom: 1;
   margin-bottom: 15px;
 }
-/* line 38, ../../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .content_area .main_content .article_area .article .comment-area .comment:after {
   content: "";
   display: table;
@@ -825,7 +827,7 @@ body {
 .content_area .sidebar .search-box {
   *zoom: 1;
 }
-/* line 38, ../../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .content_area .sidebar .search-box:after {
   content: "";
   display: table;
