@@ -37,17 +37,17 @@ LOGGING['handlers'] = {
     },
 }
 LOGGING['loggers'][''] = {
-    'handlers': ['info_log', 'error_log', 'mail_admins'],
+    'handlers': ['console', 'error_log', 'mail_admins'],
     'level': 'INFO',
     'filters': ['require_debug_false'],
 }
 LOGGING['loggers']['django'] = {
-    'handlers': ['info_log', 'mail_admins'],
+    'handlers': ['console', 'error_log', 'mail_admins'],
     'propagate': True,
     'level': 'INFO',
 }
 LOGGING['loggers']['django.request'] = {
-    'handlers': ['info_log', 'error_log', 'mail_admins'],
+    'handlers': ['console', 'error_log', 'mail_admins'],
     'propagate': True,
     'level': 'INFO',
 }
