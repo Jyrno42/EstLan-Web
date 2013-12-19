@@ -17,7 +17,7 @@ ALLOWED_HOSTS = [
 SEND_EMAIL = False
 
 LOGGING['handlers'] = {
-    'info_log': {
+    'console': {
         'class': 'logging.handlers.WatchedFileHandler',
         'level': 'INFO',
         'filename': '/var/log/EstLan/info.log',
