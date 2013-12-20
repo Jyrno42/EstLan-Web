@@ -6,6 +6,8 @@ from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
 from django.db import models
+from django.db.models.signals import pre_save, pre_delete
+from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
@@ -13,7 +15,8 @@ from django_countries import CountryField
 from tinymce.models import HTMLField
 
 from ckeditor.fields import RichTextField
-from EstLan.utils import ARTICLE_CATEGORIES_CACHE_VERSION, ARTICLE_CATEGORIES_CACHE_KEY
+
+from EstLan.utils import ARTICLE_CATEGORIES_CACHE_VERSION, ARTICLE_CATEGORIES_CACHE_KEY, reset_menu_cache, reset_custom_page_cache, reset_categories_cache, reset_featured_cache, reset_comment_count_cache
 
 
 class Location(models.Model):
@@ -139,8 +142,41 @@ class CustomPage(models.Model):
         else:
             return ("page", [self.id,])
 
-    '''
-    def save(self, *args, **kwargs):
-        reset_menu_cache(self.menu.tag)
-        return super(CustomPage, self).save(*args, **kwargs)
-    '''
+
+@receiver(pre_save, sender=CustomPage)
+def pre_custom_page_save(sender, instance, **kwargs):
+    reset_menu_cache(instance.menu.tag)
+    reset_custom_page_cache(instance)
+
+
+@receiver(pre_delete, sender=CustomPage)
+def pre_custom_page_delete(sender, instance, **kwargs):
+    reset_menu_cache(instance.menu.tag)
+    reset_custom_page_cache(instance)
+
+@receiver(pre_save, sender=Article)
+def pre_article_save(sender, instance, **kwargs):
+    old_instance = None
+
+    if instance.id:
+        old_instance = Article.objects.get(pk=instance.id)
+        reset_categories_cache(instance.id)
+
+    if instance.pinned or (old_instance and instance.pinned != old_instance.pinned):
+        reset_featured_cache()
+
+@receiver(pre_delete, sender=Article)
+def pre_article_delete(sender, instance, **kwargs):
+    if instance.pinned:
+        reset_featured_cache()
+    reset_categories_cache(instance.id)
+
+@receiver(pre_save, sender=ObjectComment)
+def pre_object_comment_save(sender, instance, **kwargs):
+    if str(instance.for_content_type) == 'article':
+        reset_comment_count_cache(instance.for_object_id)
+
+@receiver(pre_delete, sender=ObjectComment)
+def pre_object_comment_delete(sender, instance, **kwargs):
+    if str(instance.for_content_type) == 'article':
+        reset_comment_count_cache(instance.for_object_id)
