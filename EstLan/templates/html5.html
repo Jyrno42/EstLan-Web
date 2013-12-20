@@ -3,6 +3,7 @@
     <head>
         {% block base_html_title %}
             <title>{% block html_title %}{% endblock %}</title>
+            <meta content="{% block og_title %}{% endblock %}" property="og:title" />
         {% endblock %}
 
         {% block base_meta %}
@@ -10,6 +11,15 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
             {% endblock %}
         {% endblock %}
+
+        {% load i18n %}
+
+        <meta name="description" content="{% block meta_description %}{% trans "Add description when extending this template." %}{% endblock %}">
+        <meta name="keywords" content="{% block meta_keywords %}{% trans "Add keywords when extending this template." %}{% endblock %}">
+        <meta name="author" content="{% block meta_author %}{% trans "Add author when extending this template." %}{% endblock %}">
+
+        <meta content="{% block og_description %}{% endblock %}" property="og:description" />
+        <meta content="{% block og_image %}{% endblock %}" property="og:image" />
 
         {% block base_css %}{% endblock %}
         {% block head_scripts %}{% endblock %}
