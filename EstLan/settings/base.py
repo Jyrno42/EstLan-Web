@@ -92,6 +92,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'social.apps.django_app.context_processors.login_redirect',
 
     'django.core.context_processors.request',
+
+    'EstLan.context_processors.seo_tags',
 ]
 TEMPLATE_LOADERS = [
     'django.template.loaders.filesystem.Loader',
