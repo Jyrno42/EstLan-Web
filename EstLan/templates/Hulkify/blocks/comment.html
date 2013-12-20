@@ -1,8 +1,13 @@
+{% load staticfiles %}
 
 
 <div class="comment">
     <div class="comment-left">
-        <img src="http://a.disquscdn.com/1383952229/build/next/assets/img/noavatar92.png">
+        {% if comment.user.get_avatar %}
+            <img src="{{ comment.user.get_avatar }}" class="avatar">
+        {% else %}
+            <img src="{% static 'Hulkify/images/no_avatar.png' %}" class="avatar">
+        {% endif %}
     </div>
 
     <div class="comment-right">

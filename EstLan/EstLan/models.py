@@ -4,6 +4,7 @@ import datetime
 from django.conf import settings
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
+from django.core.cache import cache
 from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
@@ -12,8 +13,7 @@ from django_countries import CountryField
 from tinymce.models import HTMLField
 
 from ckeditor.fields import RichTextField
-
-import logging
+from EstLan.utils import ARTICLE_CATEGORIES_CACHE_VERSION, ARTICLE_CATEGORIES_CACHE_KEY
 
 
 class Location(models.Model):
@@ -100,7 +100,14 @@ class Article(models.Model):
         return super(Article, self).save(*args, **kwargs)
 
     def get_categories(self):
-        return self.categories.all()
+        cache_key = ARTICLE_CATEGORIES_CACHE_KEY % self.id
+        categories = cache.get(cache_key, version=ARTICLE_CATEGORIES_CACHE_VERSION)
+
+        if categories is None:
+            categories = self.categories.all()
+            categories = cache.set(cache_key, categories, version=ARTICLE_CATEGORIES_CACHE_VERSION)
+
+        return categories
 
 
 class SiteMenu(models.Model):
@@ -131,3 +138,9 @@ class CustomPage(models.Model):
             return ("page_slug", [self.slug,])
         else:
             return ("page", [self.id,])
+
+    '''
+    def save(self, *args, **kwargs):
+        reset_menu_cache(self.menu.tag)
+        return super(CustomPage, self).save(*args, **kwargs)
+    '''

@@ -42,7 +42,16 @@
                         {% block login %}
                             {% if request.user.is_authenticated %}
                                 <h4>{% trans "Hey, " %}{{ request.user.get_name }}</h4>
-                                <a href="{% url 'logout' %}" class="btn-link">{% trans "Log out" %}</a>
+                                <ul class="nav nav-pills nav-stacked">
+                                    {% if request.user.is_staff %}
+                                        <li>
+                                            <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
+                                        </li>
+                                    {% endif %}
+                                    <li>
+                                        <a href="{% url 'logout' %}">{% trans "Log out" %}</a>
+                                    </li>
+                                </ul>
                             {% else %}
                                 <h4>{% trans "Log in" %}</h4>
                                 <div>
