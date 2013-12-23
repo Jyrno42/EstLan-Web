@@ -17,6 +17,10 @@ $contentBg: #eee;
         padding: 40px;
         position: relative;
 
+        hr {
+            border-top-color: #bbb;
+        }
+
         @import "blocks/articles/article_area";
 
         .diag-bottom,

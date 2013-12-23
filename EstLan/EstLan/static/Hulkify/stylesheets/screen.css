@@ -605,6 +605,10 @@ body {
   padding: 40px;
   position: relative;
 }
+/* line 20, ../sass/blocks/_content_area.scss */
+.content_area .main_content hr {
+  border-top-color: #bbb;
+}
 /* line 5, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article {
   margin-bottom: 40px;
@@ -768,7 +772,7 @@ body {
 .content_area .main_content .article_area .article .comment-area .comment .comment-right .comment-text {
   padding-top: 3px;
 }
-/* line 23, ../sass/blocks/_content_area.scss */
+/* line 27, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom,
 .content_area .main_content .diag-top {
   background: #eeeeee;
@@ -776,32 +780,32 @@ body {
   left: 0;
   right: 0;
 }
-/* line 28, ../sass/blocks/_content_area.scss */
+/* line 32, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom .diag_helper,
 .content_area .main_content .diag-top .diag_helper {
   position: absolute;
   height: 25px;
   width: 25px;
 }
-/* line 35, ../sass/blocks/_content_area.scss */
+/* line 39, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-top {
   height: 25px;
   top: -25px;
   margin-right: 25px;
 }
-/* line 40, ../sass/blocks/_content_area.scss */
+/* line 44, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-top .diag_helper {
   right: -25px;
   border-left: 25px solid #eeeeee;
   border-top: 25px solid transparent;
 }
-/* line 46, ../sass/blocks/_content_area.scss */
+/* line 50, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom {
   height: 25px;
   bottom: -25px;
   margin-left: 25px;
 }
-/* line 51, ../sass/blocks/_content_area.scss */
+/* line 55, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom .diag_helper {
   left: -25px;
   border-right: 25px solid #eeeeee;
@@ -813,12 +817,12 @@ body {
     background: transparent;
     margin-left: 0;
   }
-  /* line 63, ../sass/blocks/_content_area.scss */
+  /* line 67, ../sass/blocks/_content_area.scss */
   .content_area .main_content {
     margin-left: 0;
   }
 }
-/* line 68, ../sass/blocks/_content_area.scss */
+/* line 72, ../sass/blocks/_content_area.scss */
 .content_area .sidebar {
   min-height: 325px;
   padding: 40px 20px;
@@ -857,7 +861,7 @@ body {
   width: 30%;
   margin: 0;
 }
-/* line 74, ../sass/blocks/_content_area.scss */
+/* line 78, ../sass/blocks/_content_area.scss */
 .content_area .sidebar h4 {
   margin-top: 20px;
   text-transform: uppercase;
