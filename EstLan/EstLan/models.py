@@ -78,8 +78,8 @@ class ArticleCategory(models.Model):
 class Article(models.Model):
     title = models.CharField(_("Title"), max_length=100)
 
-    short_text = HTMLField()
-    content = HTMLField()
+    short_text = RichTextField()
+    content = RichTextField()
 
     cover_image = models.ImageField(_("Cover Image"), upload_to='cover_image', null=True, blank=True)
     publish_date = models.DateTimeField(_("Publish Date"), default=datetime.datetime.utcnow)
