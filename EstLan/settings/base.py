@@ -282,4 +282,4 @@ EMAIL_HOST_PASSWORD = None
 EMAIL_PORT = 587
 
 # Ckeditor settings
-CKEDITOR_UPLOAD_PATH = os.path.join(SITE_ROOT, 'media/uploads/ckeditor')
+CKEDITOR_UPLOAD_PATH = 'uploads/ckeditor'
