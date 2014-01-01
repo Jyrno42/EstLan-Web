@@ -124,10 +124,10 @@ CACHES = {
 
 
 # Internationalization
-LANGUAGE_CODE = 'et'
+LANGUAGE_CODE = 'en-gb'
 LANGUAGES = (
-    ('et', 'Eesti keel'),
-    ('en', 'English'),
+    #('et', 'Eesti keel'),
+    ('en-gb', 'English'),
 )
 LOCALE_PATHS = (
     'locale',
