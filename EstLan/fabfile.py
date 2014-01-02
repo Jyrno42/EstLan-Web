@@ -33,6 +33,9 @@ def deploy():
     stop_server(silent=True)
 
     git_pull()
+
+    update_requirements()
+
     management_cmd("compilemessages")
     management_cmd("collectstatic --noinput")
     management_cmd("migrate EstLan")
@@ -56,7 +59,7 @@ def start_server(silent=False):
         confirm("start_server")
 
     require('service_name', provided_by=[ts_estlan])
-    sudo("service %s start" % env.service_name)
+    sudo("service %s restart" % env.service_name)
 
 
 # HELPERS
