@@ -18,3 +18,5 @@ easy_thumbnails
 django-countries
 django-tinymce
 django-ckeditor-updated==4.2.3
+
+django-modeltranslation==0.7.2

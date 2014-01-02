@@ -3,7 +3,8 @@
         "pk": 1,
         "model": "EstLan.articlecategory",
         "fields": {
-            "name": "General",
+            "name_en_gb": "General",
+            "name_et": "Üldine",
             "parent": null,
             "slug": "general"
         }
@@ -21,5 +22,5 @@
         "fields": {
             "tag": "RIGHT"
         }
-    },
+    }
 ]
