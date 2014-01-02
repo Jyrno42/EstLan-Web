@@ -39,7 +39,7 @@ html, body {
 
 /* line 6, ../sass/config/_body.scss */
 body {
-  background-image: url('/assets/Hulkify/images/wild_oliva.png?1385505241');
+  background-image: url('/assets/Hulkify/images/wild_oliva.png?1386755545');
   background-position: center center;
   background-repeat: repeat;
 }
@@ -64,8 +64,9 @@ body {
 /* line 26, ../sass/config/_body.scss */
 #footer p {
   margin: 0;
+  height: 40px;
 }
-/* line 30, ../sass/config/_body.scss */
+/* line 31, ../sass/config/_body.scss */
 #footer a {
   color: #eeeeee;
   text-decoration: none;
@@ -75,16 +76,16 @@ body {
   -o-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
-/* line 33, ../sass/config/_body.scss */
+/* line 34, ../sass/config/_body.scss */
 #footer a i {
   font-size: 1em;
 }
-/* line 40, ../sass/config/_body.scss */
+/* line 41, ../sass/config/_body.scss */
 #footer a:hover {
   opacity: 0.8;
 }
 
-/* line 46, ../sass/config/_body.scss */
+/* line 47, ../sass/config/_body.scss */
 .lightbox {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDApIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJyZ2JhKDAsIDAsIDAsIDAuOCkiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.8)));
@@ -100,13 +101,13 @@ body {
   z-index: -1;
 }
 
-/* line 62, ../sass/config/_body.scss */
+/* line 63, ../sass/config/_body.scss */
 .estlan-container {
   max-width: 980px;
   z-index: 7;
 }
 
-/* line 67, ../sass/config/_body.scss */
+/* line 68, ../sass/config/_body.scss */
 .align-right {
   text-align: right;
 }
@@ -210,7 +211,7 @@ body {
 }
 /* line 16, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-brand.logo {
-  background: url('/assets/Hulkify/images/logo.png?1385505241');
+  background: url('/assets/Hulkify/images/logo.png?1386755545');
   width: 146px;
   height: 89px;
   line-height: 89px;
@@ -729,7 +730,7 @@ body {
   *zoom: 1;
   margin-bottom: 15px;
 }
-/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .content_area .main_content .article_area .article .comment-area .comment:after {
   content: "";
   display: table;
@@ -831,7 +832,7 @@ body {
 .content_area .sidebar .search-box {
   *zoom: 1;
 }
-/* line 38, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .content_area .sidebar .search-box:after {
   content: "";
   display: table;
