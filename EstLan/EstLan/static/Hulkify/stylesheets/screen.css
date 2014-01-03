@@ -656,30 +656,30 @@ body {
 .content_area .main_content .article_area .article > p strong {
   font-weight: bold;
 }
-/* line 50, ../sass/blocks/articles/_article_area.scss */
+/* line 49, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error {
   position: relative;
 }
-/* line 54, ../sass/blocks/articles/_article_area.scss */
+/* line 53, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error h1 {
   border-bottom: 0px none transparent;
 }
-/* line 58, ../sass/blocks/articles/_article_area.scss */
+/* line 57, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error > div {
   padding-left: 121px;
 }
-/* line 62, ../sass/blocks/articles/_article_area.scss */
+/* line 61, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article.error [class*='icon-'] {
   font-size: 7em;
   float: left;
   width: 121px;
 }
-/* line 69, ../sass/blocks/articles/_article_area.scss */
+/* line 68, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article img {
   max-width: 100%;
   height: auto;
 }
-/* line 74, ../sass/blocks/articles/_article_area.scss */
+/* line 73, ../sass/blocks/articles/_article_area.scss */
 .content_area .main_content .article_area .article .sharethis-container {
   text-align: right;
 }
@@ -773,7 +773,15 @@ body {
 .content_area .main_content .article_area .article .comment-area .comment .comment-right .comment-text {
   padding-top: 3px;
 }
-/* line 27, ../sass/blocks/_content_area.scss */
+/* line 2, ../sass/blocks/articles/_blockquote.scss */
+.content_area .main_content blockquote {
+  border-color: #ccc;
+}
+/* line 4, ../sass/blocks/articles/_blockquote.scss */
+.content_area .main_content blockquote > small {
+  font-size: 90%;
+}
+/* line 28, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom,
 .content_area .main_content .diag-top {
   background: #eeeeee;
@@ -781,32 +789,32 @@ body {
   left: 0;
   right: 0;
 }
-/* line 32, ../sass/blocks/_content_area.scss */
+/* line 33, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom .diag_helper,
 .content_area .main_content .diag-top .diag_helper {
   position: absolute;
   height: 25px;
   width: 25px;
 }
-/* line 39, ../sass/blocks/_content_area.scss */
+/* line 40, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-top {
   height: 25px;
   top: -25px;
   margin-right: 25px;
 }
-/* line 44, ../sass/blocks/_content_area.scss */
+/* line 45, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-top .diag_helper {
   right: -25px;
   border-left: 25px solid #eeeeee;
   border-top: 25px solid transparent;
 }
-/* line 50, ../sass/blocks/_content_area.scss */
+/* line 51, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom {
   height: 25px;
   bottom: -25px;
   margin-left: 25px;
 }
-/* line 55, ../sass/blocks/_content_area.scss */
+/* line 56, ../sass/blocks/_content_area.scss */
 .content_area .main_content .diag-bottom .diag_helper {
   left: -25px;
   border-right: 25px solid #eeeeee;
@@ -818,12 +826,12 @@ body {
     background: transparent;
     margin-left: 0;
   }
-  /* line 67, ../sass/blocks/_content_area.scss */
+  /* line 68, ../sass/blocks/_content_area.scss */
   .content_area .main_content {
     margin-left: 0;
   }
 }
-/* line 72, ../sass/blocks/_content_area.scss */
+/* line 73, ../sass/blocks/_content_area.scss */
 .content_area .sidebar {
   min-height: 325px;
   padding: 40px 20px;
@@ -862,7 +870,7 @@ body {
   width: 30%;
   margin: 0;
 }
-/* line 78, ../sass/blocks/_content_area.scss */
+/* line 79, ../sass/blocks/_content_area.scss */
 .content_area .sidebar h4 {
   margin-top: 20px;
   text-transform: uppercase;
