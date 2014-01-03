@@ -4,8 +4,8 @@
 {% load i18n %}
 
 
-{% block html_title %}EstLan{% endblock %}
-{% block og_title %}EstLan{% endblock %}
+{% block html_title %}{{ SITE_NAME }}{% endblock %}
+{% block og_title %}{{ SITE_NAME }}{% endblock %}
 
 {% block meta_description %}{% if meta_description_single %}{{ meta_description_single }}{% else %}{{ meta_description }}{% endif %}{% endblock %}
 {% block og_description %}{% if meta_description_single %}{{ meta_description_single }}{% else %}{{ meta_description }}{% endif %}{% endblock %}
@@ -23,6 +23,11 @@
     <link href="{% static 'Hulkify/stylesheets/screen.css' %}" rel="stylesheet" media="screen">
 
     {% block extra_css %}{% endblock %}
+{% endblock %}
+
+{% block base_meta %}{{ block.super }}
+    <link rel="shortcut icon" href="{% static 'Hulkify/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'Hulkify/images/favicon.ico' %}" type="image/x-icon">
 {% endblock %}
 
 
@@ -56,6 +61,10 @@
             $(document).ready(function () {
                 $('textarea.autosize').autosize().addClass('textarea-transition');
                 $(".timeago").timeago();
+
+                $('[name="language"]').on('change', function () {
+                    $(this).parents('form').submit();
+                });
             });
         </script>
     {% endblock %}

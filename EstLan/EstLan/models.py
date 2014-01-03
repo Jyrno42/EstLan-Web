@@ -116,8 +116,8 @@ class Article(models.Model):
 class SiteMenu(models.Model):
     tag = models.CharField(_('Tag'), max_length=16, unique=True, blank=True)
 
-    def __str__(self):
-        return "Menu %s" % (self.tag)
+    def __unicode__(self):
+        return u"Menu %s" % self.tag
 
 class CustomPage(models.Model):
     slug = models.CharField(_('Slug'), max_length=100, unique=True, blank=True)
@@ -132,8 +132,8 @@ class CustomPage(models.Model):
 
     url = models.URLField('URL', blank=True, null=True)
 
-    def __str__(self):
-        return "Page: %s at /%s" % (self.title, self.slug)
+    def __unicode__(self):
+        return u"Page: %s at /%s" % (self.title, self.slug)
 
     @models.permalink
     def get_absolute_url(self):

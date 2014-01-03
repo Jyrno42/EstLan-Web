@@ -31,6 +31,7 @@ urlpatterns = patterns(
     # End: EstLan urls
 
     url('', include('social.apps.django_app.urls', namespace='social')),
+    (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
 

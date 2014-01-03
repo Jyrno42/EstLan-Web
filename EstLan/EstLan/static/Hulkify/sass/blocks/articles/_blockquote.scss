@@ -1,0 +1,13 @@
+
+blockquote {
+    border-color: #ccc;
+
+    > p {
+        color: #555;
+        font-style: italic;
+    }
+
+    > small {
+        font-size: 90%;
+    }
+}

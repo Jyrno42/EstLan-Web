@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -13,4 +14,6 @@ def seo_tags(request):
             "lanparty, gaming, charity, digital, festival, gathering, "
             "league, legends, dota, cs, estlan, estonia, boomcasters"
         ),
+        'SITE_NAME': settings.SITE_NAME,
+        'SITE_VERSION': settings.SITE_VERSION,
     }
