@@ -44,7 +44,13 @@
             strong {
                 font-weight: bold;
             }
+        }
 
+        blockquote {
+            border-color: #ccc;
+            > small {
+                font-size: 90%;
+            }
         }
 
         &.error {

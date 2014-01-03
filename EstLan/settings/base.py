@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'tinymce',
     'ckeditor',
 
+    # modeltranslation
+    'modeltranslation',
+
     # Apps for EstLan
     'accounts',
     'utils',
@@ -69,6 +72,7 @@ MIDDLEWARE_CLASSES = [
     'utils.middleware.ForceDefaultLanguageMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -124,10 +128,10 @@ CACHES = {
 
 
 # Internationalization
-LANGUAGE_CODE = 'et'
+LANGUAGE_CODE = 'en-gb'
 LANGUAGES = (
     ('et', 'Eesti keel'),
-    ('en', 'English'),
+    ('en-gb', 'English'),
 )
 LOCALE_PATHS = (
     'locale',
@@ -282,4 +286,4 @@ EMAIL_HOST_PASSWORD = None
 EMAIL_PORT = 587
 
 # Ckeditor settings
-CKEDITOR_UPLOAD_PATH = os.path.join(SITE_ROOT, 'media/uploads/ckeditor')
+CKEDITOR_UPLOAD_PATH = 'uploads/ckeditor'

@@ -1,18 +1,21 @@
 # coding:utf-8
+import logging
+from django.core.cache import cache
 from django.db.models import Q
 from django.contrib.flatpages.models import FlatPage
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import Http404, HttpResponseRedirect
 from django.template import RequestContext
-from django.utils.timezone import datetime
 from django.utils.translation import ugettext
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import TemplateView
 
 from EstLan.forms import ArticleCommentForm
 from EstLan.models import Article, ArticleCategory, CustomPage
-from EstLan.utils import get_menu_items
+from EstLan.utils import (CUSTOM_PAGE_CACHE_VERSION, CUSTOM_PAGE_CACHE_KEY_ID, CUSTOM_PAGE_CACHE_KEY_SLUG,
+                          FEATURED_POSTS_CACHE_KEY, FEATURED_POSTS_CACHE_VERSION, COMMENT_COUNT_CACHE_KEY,
+                          COMMENT_COUNT_CACHE_VERSION, CATEGORIES_CACHE_VERSION, CATEGORIES_CACHE_KEY)
 
 
 class FrontPageView(TemplateView):
@@ -34,12 +37,46 @@ class FrontPageView(TemplateView):
             ret.append(inner)
         return ret
 
+    @staticmethod
+    def get_featured_posts(queryset):
+        featured_posts = cache.get(FEATURED_POSTS_CACHE_KEY, version=FEATURED_POSTS_CACHE_VERSION)
+
+        if not featured_posts:
+            featured_posts = queryset.filter(pinned=True).exclude(cover_image__isnull=True, cover_image='')
+            featured_posts = filter(lambda x: x.cover_image.name != '', featured_posts)
+            cache.set(FEATURED_POSTS_CACHE_KEY, featured_posts, version=FEATURED_POSTS_CACHE_VERSION)
+
+        return featured_posts
+
+    @staticmethod
+    def get_comment_count(article):
+        cache_key = COMMENT_COUNT_CACHE_KEY % article.id
+        comment_count = cache.get(cache_key, version=COMMENT_COUNT_CACHE_VERSION)
+
+        if comment_count is None:
+            comment_count = article.comments.all().count()
+            cache.set(cache_key, comment_count, version=COMMENT_COUNT_CACHE_VERSION)
+
+        return comment_count
+
+    @staticmethod
+    def get_categories():
+        cache_key = CATEGORIES_CACHE_KEY
+        categories = cache.get(cache_key, version=CATEGORIES_CACHE_VERSION)
+
+        if categories is None:
+            categories = FrontPageView.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
+            cache.set(cache_key, categories, version=CATEGORIES_CACHE_VERSION)
+
+        return categories
+
     def get(self, request, *args, **kwargs):
-        queryset = Article.objects.filter(draft=False).order_by('-publish_date')
+        queryset = Article.objects.filter(draft=False)\
+            .order_by('-publish_date')\
+            .select_related('author', 'category__slug', 'comments')
 
         # Fixes #10
-        featured_posts = queryset.filter(pinned=True).exclude(cover_image__isnull=True, cover_image='')
-        featured_posts = filter(lambda x: x.cover_image.name != '', featured_posts)
+        featured_posts = FrontPageView.get_featured_posts(queryset)
 
         query = request.GET.get('query', '')
 
@@ -61,13 +98,11 @@ class FrontPageView(TemplateView):
             articles = paginator.page(paginator.num_pages)
 
         for article in articles:
-            setattr(article, 'comment_count', article.comments.all().count())
-
-        categories = FrontPageView.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
+            setattr(article, 'comment_count', FrontPageView.get_comment_count(article))
 
         return self.render_to_response(RequestContext(request, {
             'articles': articles,
-            'categories': categories,
+            'categories': FrontPageView.get_categories(),
             'featured_posts': featured_posts,
             'show_hero_unit': not query and not cat_slug,
         }))
@@ -101,13 +136,11 @@ class ArticleView(TemplateView):
         except FlatPage.DoesNotExist:
             comment_desc = None
 
-        categories = FrontPageView.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
-
         return self.render_to_response(RequestContext(request, {
             'article': article,
             'comment_desc': comment_desc,
             'comments': article.comments.all().order_by('-timestamp'),
-            'categories': categories,
+            'categories': FrontPageView.get_categories(),
             'form': form,
         }))
 
@@ -115,20 +148,30 @@ class ArticleView(TemplateView):
 class CustomPageView(TemplateView):
     template_name = 'flatpages/default.html'
 
+    def get_cached(self, page_id=None, page_slug=None):
+        if page_slug:
+            cache_key = CUSTOM_PAGE_CACHE_KEY_SLUG % page_slug
+            page = cache.get(cache_key, version=CUSTOM_PAGE_CACHE_VERSION)
+            if not page:
+                page = get_object_or_404(CustomPage, slug=page_slug)
+        elif page_id:
+            cache_key = CUSTOM_PAGE_CACHE_KEY_ID % page_id
+            page = cache.get(cache_key, version=CUSTOM_PAGE_CACHE_VERSION)
+            if not page:
+                page = get_object_or_404(CustomPage, id=page_id)
+        else:
+            raise Http404
+
+        cache.set(cache_key, page, version=CUSTOM_PAGE_CACHE_VERSION)
+        return page
+
     def dispatch(self, request, *args, **kwargs):
         page_id = kwargs.get('page_id', None)
         page_slug = kwargs.get('page_slug', None)
 
-        if page_slug:
-            page = get_object_or_404(CustomPage, slug=page_slug)
-        elif page_id:
-            page = get_object_or_404(CustomPage, id=page_id)
-        else:
-            raise Http404
-
-        categories = FrontPageView.handle_cat(ArticleCategory.objects.filter(parent=None).order_by('name'))
+        page = self.get_cached(page_id, page_slug)
 
         return self.render_to_response(RequestContext(request, {
             'flatpage': page,
-            'categories': categories,
+            'categories': FrontPageView.get_categories(),
         }))
