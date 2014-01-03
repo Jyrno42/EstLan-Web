@@ -1,4 +1,6 @@
 import logging
+from bs4 import BeautifulSoup, Comment
+
 from django.core.cache import cache
 
 
@@ -59,3 +61,17 @@ def get_menu_items(tag='TOP'):
         cache.set(cache_key, menu, version=MENU_CACHE_VERSION)
 
     return menu
+
+def sanitize_html(value, tags='p i strong b u a h1 h2 h3 pre br img', attrs='href src'):
+    valid_tags = tags.split()
+    valid_attrs = attrs.split()
+    soup = BeautifulSoup(value)
+    for comment in soup.findAll(
+        text=lambda text: isinstance(text, Comment)):
+        comment.extract()
+    for tag in soup.findAll(True):
+        if tag.name not in valid_tags:
+            tag.hidden = True
+
+        tag.attrs = dict((attr, val) for attr, val in tag.attrs.items() if attr in valid_attrs)
+    return soup.renderContents().decode('utf8').replace('javascript:', '')

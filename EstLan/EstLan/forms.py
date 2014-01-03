@@ -5,6 +5,7 @@ from EstLan.models import ObjectComment, CustomPage
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Div, HTML, Layout, Field
+from EstLan.utils import sanitize_html
 
 
 class ArticleCommentForm(ModelForm):
@@ -38,8 +39,14 @@ class ArticleCommentForm(ModelForm):
             )
         )
 
+    def clean_comment(self):
+        data = self.cleaned_data['comment']
+        print sanitize_html(data, tags='p i strong b u a pre br', attrs='href')
+        return sanitize_html(data, tags='p i strong b u a pre br', attrs='href')
+
     def save(self, commit=True):
         instance = super(ArticleCommentForm, self).save(commit=False)
+
         if commit:
             instance.for_object = self.article
             instance.user = self.user
