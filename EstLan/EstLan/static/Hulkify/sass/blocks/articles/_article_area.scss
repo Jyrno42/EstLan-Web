@@ -47,6 +47,13 @@
 
         }
 
+        blockquote {
+            border-color: #ccc;
+            > small {
+                font-size: 90%;
+            }
+        }
+
         &.error {
             $errorIconWidth: 96px +  25px;
             position: relative;
