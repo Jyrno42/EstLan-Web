@@ -41,7 +41,6 @@ class ArticleCommentForm(ModelForm):
 
     def clean_comment(self):
         data = self.cleaned_data['comment']
-        print sanitize_html(data, tags='p i strong b u a pre br', attrs='href')
         return sanitize_html(data, tags='p i strong b u a pre br', attrs='href')
 
     def save(self, commit=True):

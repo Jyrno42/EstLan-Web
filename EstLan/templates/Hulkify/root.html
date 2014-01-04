@@ -62,8 +62,16 @@
                 $('textarea.autosize').autosize().addClass('textarea-transition');
                 $(".timeago").timeago();
 
-                $('[name="language"]').on('change', function () {
-                    $(this).parents('form').submit();
+                $('[data-language]').on('click', function (e) {
+                    e.preventDefault();
+                    $.post($(this).attr('href'), {
+                        'language': $(this).data('language'),
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    }, function () {
+                        window.location.reload();
+                    });
+
+                    return false;
                 });
             });
         </script>
