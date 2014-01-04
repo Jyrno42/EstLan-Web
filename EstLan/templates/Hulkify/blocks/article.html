@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load staticfiles %}
+{% load smartsafe %}
 
 
 <div class="article">
@@ -40,7 +41,7 @@
     {% endif %}
 
     {% if preview %}
-        {{ article.short_text|safe }}
+        {{ article.short_text|fix_html|safe }}
 
         {% if article.slug %}
             <a href="{% url 'article_slug' article_slug=article.slug %}" class="btn btn-green" >{% trans "Read More" %}</a>
@@ -50,7 +51,7 @@
             <a href="{% url 'article' article_id=article.id %}#comments" class="btn btn-link">{% trans "Comments" %} ({{ article.comment_count }})</a>
         {% endif %}
     {% else %}
-        {{ article.content|safe }}
+        {{ article.content|fix_html|safe }}
 
         <div class="sharethis-container">
             <span class='st_facebook_large' displayText='Facebook'></span>
@@ -62,7 +63,7 @@
 
         <h2 class="comments-title" id="comments">{% trans "Comments" %}</h2>
         {% if comment_desc %}
-            {{ comment_desc.content }}
+            {{ comment_desc.content|fix_html }}
         {% else %}
             <p>
                 {% blocktrans %}
@@ -76,7 +77,7 @@
             {% crispy form %}
         {% else %}
             <div class="comments-actions">
-                <h3>Log in with</h3>
+                <h3>{% trans "Log in with" %}</h3>
                 <div>
                     <a href="{% url 'social:begin' "facebook" %}?next={{ request.path }}" class="btn btn-green btn-green-no-right no-margin-right" >Facebook</a>
                     <a href="{% url 'social:begin' "google-oauth2" %}?next={{ request.path }}" class="btn btn-green btn-green-no-left no-margin-left" >Google+</a>

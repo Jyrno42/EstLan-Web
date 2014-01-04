@@ -191,25 +191,30 @@ body {
   margin-right: 0;
 }
 
-/* line 2, ../sass/blocks/_heading.scss */
+/* line 50, flags/*.png */
+.flags-sprite, .estlan-navbar .flag.et, .estlan-navbar .flag.en-gb {
+  background: url('/assets/Hulkify/images/flags-s31fcbef812.png') no-repeat;
+}
+
+/* line 4, ../sass/blocks/_heading.scss */
 .estlan-navbar {
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
 }
-/* line 7, ../sass/blocks/_heading.scss */
+/* line 9, ../sass/blocks/_heading.scss */
 .estlan-navbar .container {
   max-width: 900px;
 }
 @media (min-width: 768px) {
-  /* line 7, ../sass/blocks/_heading.scss */
+  /* line 9, ../sass/blocks/_heading.scss */
   .estlan-navbar .container {
     padding-right: 0px;
     padding-left: 0px;
   }
 }
-/* line 16, ../sass/blocks/_heading.scss */
+/* line 18, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-brand.logo {
   background: url('/assets/Hulkify/images/logo.png?1385505241');
   width: 146px;
@@ -218,13 +223,13 @@ body {
   margin: 5px 15px 0 90px;
 }
 @media (max-width: 1000px) {
-  /* line 16, ../sass/blocks/_heading.scss */
+  /* line 18, ../sass/blocks/_heading.scss */
   .estlan-navbar .navbar-brand.logo {
     margin-left: 0px;
     margin-right: 0px;
   }
 }
-/* line 28, ../sass/blocks/_heading.scss */
+/* line 30, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a {
   text-transform: uppercase;
   font-size: 18px;
@@ -235,11 +240,11 @@ body {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-/* line 35, ../sass/blocks/_heading.scss */
+/* line 37, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a:hover, .estlan-navbar .navbar-nav > li > a.active {
   opacity: 1;
 }
-/* line 39, ../sass/blocks/_heading.scss */
+/* line 41, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li > a:after {
   content: "";
   position: absolute;
@@ -250,19 +255,51 @@ body {
   bottom: 40px;
   z-index: 30;
 }
-/* line 51, ../sass/blocks/_heading.scss */
+/* line 53, ../sass/blocks/_heading.scss */
 .estlan-navbar .nav.navbar-nav.pull-right {
   float: left !important;
 }
-/* line 56, ../sass/blocks/_heading.scss */
+/* line 58, ../sass/blocks/_heading.scss */
 .estlan-navbar .navbar-nav > li:last-child > a:after {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 62, ../sass/blocks/_heading.scss */
+  /* line 64, ../sass/blocks/_heading.scss */
   .estlan-navbar .navbar-collapse {
     background-color: #eee;
   }
+}
+/* line 70, ../sass/blocks/_heading.scss */
+.estlan-navbar .lang-selector > a {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 40px;
+}
+/* line 77, ../sass/blocks/_heading.scss */
+.estlan-navbar .lang-selector .dropdown-menu .flag {
+  position: relative;
+  top: 4px;
+}
+/* line 84, ../sass/blocks/_heading.scss */
+.estlan-navbar .flag {
+  display: inline-block;
+}
+/* line 87, ../sass/blocks/_heading.scss */
+.estlan-navbar .flag.et {
+  background-position: 0 -22px;
+  width: 20px;
+  height: 20px;
+}
+/* line 92, ../sass/blocks/_heading.scss */
+.estlan-navbar .flag.en-gb {
+  background-position: 0 0;
+  width: 20px;
+  height: 20px;
+}
+/* line 98, ../sass/blocks/_heading.scss */
+.estlan-navbar .flag + .caret {
+  position: relative;
+  top: -4px;
 }
 
 /* line 4, ../sass/blocks/_hero_unit.scss */

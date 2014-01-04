@@ -20,7 +20,26 @@
                     <a href="{% url "frontpage" %}">{% trans "Home" %}</a>
                 </li>
                 {% show_menu 'TOP' %}
+
+                <li class="dropdown lang-selector">
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_current_language as LANGUAGE_CODE %}
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="flag {{ LANGUAGE_CODE|lower }}"></span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        {% for language in LANGUAGES %}
+                            <li>
+                                <a href="/i18n/setlang/" data-language="{{ language.0 }}">
+                                    <span class="flag {{ language.0|lower }}"></span> {{ language.1 }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
             </ul>
         </nav>
+
+        <ul class="nav navbar-nav navbar-right">
+        </ul>
     </div>
 </header>

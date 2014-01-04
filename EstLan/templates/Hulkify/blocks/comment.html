@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load smartsafe %}
 
 
 <div class="comment">
@@ -16,7 +17,7 @@
             <span class="comment-timeago timeago" title="{{ comment.timestamp }}">{{ comment.timestamp }}</span>
         </div>
         <div class="comment-text">
-            {{ comment.comment|safe }}
+            {{ comment.comment|comment_text|fix_html|safe }}
         </div>
     </div>
 </div>

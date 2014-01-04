@@ -62,6 +62,9 @@ def get_menu_items(tag='TOP'):
 
     return menu
 
+def fix_html(value):
+    return BeautifulSoup(value).prettify(encoding='utf8')
+
 def sanitize_html(value, tags='p i strong b u a h1 h2 h3 pre br img', attrs='href src'):
     valid_tags = tags.split()
     valid_attrs = attrs.split()

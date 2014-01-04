@@ -1,3 +1,5 @@
+$flags-spacing: 2px;
+@import "flags/*.png";
 
 .estlan-navbar {
     font-family: $fontStackHeading;
@@ -61,6 +63,41 @@
     @media (max-width: 767px) {
         .navbar-collapse {
             background-color: #eee;
+        }
+    }
+
+    .lang-selector {
+        > a {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 40px;
+        }
+
+        .dropdown-menu {
+            .flag {
+                position: relative;
+                top: 4px;
+            }
+        }
+    }
+
+    .flag {
+        display: inline-block;
+
+        &.et {
+            @include flags-sprite(et);
+            width: flags-sprite-width(et);
+            height: flags-sprite-height(et);
+        }
+        &.en-gb {
+            @include flags-sprite(en-gb);
+            width: flags-sprite-width(en-gb);
+            height: flags-sprite-height(en-gb);
+        }
+
+        + .caret {
+            position: relative;
+            top: -4px;
         }
     }
 }

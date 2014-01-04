@@ -1,5 +1,6 @@
 {% extends "Hulkify/root.html" %}
 {% load i18n %}
+{% load estlan_menu %}
 
 
 {% block html_body %}
@@ -42,17 +43,25 @@
                         {% block login %}
                             {% if request.user.is_authenticated %}
                                 <h4>{% trans "Hey, " %}{{ request.user.get_name }}</h4>
-                                <ul class="nav nav-pills nav-stacked">
-                                    {% if request.user.is_staff %}
-                                        <li>
-                                            <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
-                                        </li>
-                                    {% endif %}
+                            {% endif %}
+
+                            <ul class="nav nav-pills nav-stacked">
+                                {% if request.user.is_staff %}
+                                    <li>
+                                        <a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
+                                    </li>
+                                {% endif %}
+
+                                {% show_menu 'RIGHT' %}
+
+                                {% if request.user.is_authenticated %}
                                     <li>
                                         <a href="{% url 'logout' %}">{% trans "Log out" %}</a>
                                     </li>
-                                </ul>
-                            {% else %}
+                                {% endif %}
+                            </ul>
+
+                            {% if not request.user.is_authenticated %}
                                 <h4>{% trans "Log in" %}</h4>
                                 <div>
                                     <a href="{% url 'social:begin' "facebook" %}?next={{ request.path }}" class="btn btn-green btn-green-no-right no-margin-right" >Facebook</a>
@@ -81,21 +90,6 @@
                         <p class="text-muted credit">
                             {{ SITE_NAME }} <small>v{{ SITE_VERSION }}</small> 2014 - <a href="https://github.com/Jyrno42/EstLan-Web" target="_blank"><i class="icon-github-sign"></i></a>
                         </p>
-                    </div>
-                    <div class="col-md-1">
-                        <form action="/i18n/setlang/" method="post">
-                            {% csrf_token %}
-                            <input name="next" type="hidden" value="{{ request.get_path }}" />
-
-                            {% get_available_languages as LANGUAGES %}
-                            {% get_current_language as LANGUAGE_CODE %}
-
-                            <select name="language" class="form-control input-sm" style="line-height: 40px; margin-top: 5px; width: 90px">
-                                {% for language in LANGUAGES %}
-                                    <option value="{{ language.0 }}"{% if language.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>{{ language.1 }}</option>
-                                {% endfor %}
-                            </select>
-                        </form>
                     </div>
                 </div>
             </div>

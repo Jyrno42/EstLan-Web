@@ -1,5 +1,5 @@
 {% load thumbnail %}
-
+{% load smartsafe %}
 
 {% if featured_posts %}
     <div class="hero_base">
@@ -16,7 +16,7 @@
                             {# TODO: Replace this with permalink to model :) #}
                             <a class="carousel-caption" href="{% if hero_article.slug %}{% url 'article_slug' article_slug=hero_article.slug %}{% else %}{% url 'article' article_id=hero_article.id %}{% endif %}">
                                 <h3>{{ hero_article.title }}</h3>
-                                <p>{{ hero_article.short_text|truncatechars:200|safe }}</p>
+                                <p>{{ hero_article.short_text|short_text|fix_html|safe }}</p>
                             </a>
                         </div>
                     {% endfor %}
