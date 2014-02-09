@@ -1,0 +1,46 @@
+{% extends "Hulkify/base.html" %}
+
+{% load staticfiles %}
+{% load email_obfuscator %}
+{% load age %}
+
+
+{# TODO: Add profile editing here. #}
+
+{% block article_area %}
+
+    {% block before_profile %}{% endblock %}
+
+    {% block profile_base %}
+        <div class="row profile">
+            <div class="col-md-4 class avatar-default">
+                {% block profile_left %}
+                    {% if object.get_avatar %}
+                        <img src="{{ object.get_avatar }}" class="avatar">
+                    {% else %}
+                        <img src="{% static 'Hulkify/images/no_avatar.png' %}" class="avatar">
+                    {% endif %}
+                {% endblock %}
+            </div>
+            <div class="col-md-8">
+                {% block profile_right %}
+                    <h4>{{ object.get_name|default:"Nameless" }}</h4>
+                    <p>
+                        {% if object.email and object.show_email %}
+                            <i class="icon-envelope"></i> {{ object.email|obfuscate }}<br />
+                        {% endif %}
+
+                        <i class="icon-user"></i> {{ object.get_gender_display|title }}<br />
+
+                        {% if object.date_of_birth and object.show_age %}
+                            <i class="icon-gift"></i> {{ object.date_of_birth|age }}<br />
+                        {% endif %}
+                    </p>
+                {% endblock %}
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block after_profile %}{% endblock %}
+
+{% endblock %}

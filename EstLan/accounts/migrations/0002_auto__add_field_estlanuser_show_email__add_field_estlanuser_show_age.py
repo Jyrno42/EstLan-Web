@@ -8,54 +8,23 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'EstLanUser'
-        db.create_table(u'accounts_estlanuser', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('password', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('last_login', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
-            ('is_superuser', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('username', self.gf('django.db.models.fields.CharField')(unique=True, max_length=30)),
-            ('first_name', self.gf('django.db.models.fields.CharField')(max_length=30, blank=True)),
-            ('last_name', self.gf('django.db.models.fields.CharField')(max_length=30, blank=True)),
-            ('email', self.gf('django.db.models.fields.EmailField')(max_length=75, blank=True)),
-            ('is_staff', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('is_active', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('date_joined', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
-            ('gender', self.gf('django.db.models.fields.CharField')(default=u'm', max_length=1)),
-            ('date_of_birth', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=16, blank=True)),
-            ('selected_avatar', self.gf('django.db.models.fields.CharField')(default=u'fb', max_length=2)),
-        ))
-        db.send_create_signal(u'accounts', ['EstLanUser'])
+        # Adding field 'EstLanUser.show_email'
+        db.add_column(u'accounts_estlanuser', 'show_email',
+                      self.gf('django.db.models.fields.BooleanField')(default=True),
+                      keep_default=False)
 
-        # Adding M2M table for field groups on 'EstLanUser'
-        m2m_table_name = db.shorten_name(u'accounts_estlanuser_groups')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('estlanuser', models.ForeignKey(orm[u'accounts.estlanuser'], null=False)),
-            ('group', models.ForeignKey(orm[u'auth.group'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['estlanuser_id', 'group_id'])
-
-        # Adding M2M table for field user_permissions on 'EstLanUser'
-        m2m_table_name = db.shorten_name(u'accounts_estlanuser_user_permissions')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('estlanuser', models.ForeignKey(orm[u'accounts.estlanuser'], null=False)),
-            ('permission', models.ForeignKey(orm[u'auth.permission'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['estlanuser_id', 'permission_id'])
+        # Adding field 'EstLanUser.show_age'
+        db.add_column(u'accounts_estlanuser', 'show_age',
+                      self.gf('django.db.models.fields.BooleanField')(default=True),
+                      keep_default=False)
 
 
     def backwards(self, orm):
-        # Deleting model 'EstLanUser'
-        db.delete_table(u'accounts_estlanuser')
+        # Deleting field 'EstLanUser.show_email'
+        db.delete_column(u'accounts_estlanuser', 'show_email')
 
-        # Removing M2M table for field groups on 'EstLanUser'
-        db.delete_table(db.shorten_name(u'accounts_estlanuser_groups'))
-
-        # Removing M2M table for field user_permissions on 'EstLanUser'
-        db.delete_table(db.shorten_name(u'accounts_estlanuser_user_permissions'))
+        # Deleting field 'EstLanUser.show_age'
+        db.delete_column(u'accounts_estlanuser', 'show_age')
 
 
     models = {
@@ -75,6 +44,8 @@ class Migration(SchemaMigration):
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'selected_avatar': ('django.db.models.fields.CharField', [], {'default': "u'fb'", 'max_length': '2'}),
+            'show_age': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'show_email': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '16', 'blank': 'True'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Permission']"}),
             'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})

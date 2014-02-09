@@ -15,7 +15,7 @@ import os
 
 # SITE_NAME
 SITE_NAME = u'EstLan'
-SITE_VERSION = u'0.0.2c'
+SITE_VERSION = u'0.0.3 beta'
 SITE_ID = 1
 
 # Build paths inside the project like this: os.path.join(SITE_ROOT, ...)
@@ -51,20 +51,21 @@ INSTALLED_APPS = [
 
     # Utilities & stuff
     'social.apps.django_app.default',
-    'south',
     'easy_thumbnails',
     'compressor',
     'crispy_forms',
     'tinymce',
     'ckeditor',
 
-    # modeltranslation
+    'email_obfuscator',
     'modeltranslation',
 
     # Apps for EstLan
     'accounts',
     'utils',
     'EstLan',
+
+    'south',
 ]
 
 
@@ -165,7 +166,7 @@ STATICFILES_FINDERS = (
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'NOT_FOR_REPO'
 
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'accounts.EstLanUser'
 SESSION_COOKIE_AGE = 604800
 
 ALLOWED_HOSTS = []
@@ -255,7 +256,8 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.user.create_user',
     'social.pipeline.social_auth.associate_user',
     'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details'
+    'social.pipeline.user.user_details',
+    'accounts.pipeline.user_details',
 )
 
 

@@ -17,19 +17,21 @@
         {% endif %}
 
         <div>
-            {% with article.get_categories as categories %}
-                {% with article.author.get_name as author %}
-                    {% with article.publish_date|date:"SHORT_DATETIME_FORMAT" as timestamp %}
-                        {% blocktrans %}Posted on {{ timestamp }}{% endblocktrans %}
-                        {% if categories %}
-                            {% trans 'in' %}
-                            {% for category in categories %}
-                                <a href="{% url 'category' category_slug=category.slug %}">{{ category.name }}</a>{% if not forloop.last %},{% endif %}
-                            {% endfor %}
-                        {% endif %}
-                        {% blocktrans %}
-                            by {{ author }}
-                        {% endblocktrans %}
+            {% with article.author.get_absolute_url as profile_url %}
+                {% with article.get_categories as categories %}
+                    {% with article.author.get_name as author %}
+                        {% with article.publish_date|date:"SHORT_DATETIME_FORMAT" as timestamp %}
+                            {% blocktrans %}Posted on {{ timestamp }}{% endblocktrans %}
+                            {% if categories %}
+                                {% trans 'in' %}
+                                {% for category in categories %}
+                                    <a href="{% url 'category' category_slug=category.slug %}">{{ category.name }}</a>{% if not forloop.last %},{% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            {% blocktrans %}
+                                by <a href="{{ profile_url }}">{{ author }}</a>
+                            {% endblocktrans %}
+                        {% endwith %}
                     {% endwith %}
                 {% endwith %}
             {% endwith %}

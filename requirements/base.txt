@@ -1,5 +1,5 @@
 Django==1.6.1
-South==0.8.3
+South==0.8.4
 django-crispy-forms==1.4.0
 
 
@@ -22,3 +22,5 @@ django-ckeditor-updated==4.2.3
 django-modeltranslation==0.7.2
 
 beautifulsoup4==4.3.2
+
+django-email-obfuscator
